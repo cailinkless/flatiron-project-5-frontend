@@ -41,6 +41,12 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
                 loading: false
             }
 
+        // case "UPDATE_PLAYBILL":
+        //     return {
+        //         ...state,
+        //         loading: true
+        //     }
+
         default: 
             return state
     }

@@ -37,11 +37,14 @@ class PlaybillForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleOnSubmit}>
-                <label>Play Title:</label>
-                <input type="text" value={this.state.playbill.title} onChange={this.handleOnChange}/>
-                <button type="submit">Start This Playbill</button>
-            </form>
+            <div>
+                <h2>Start New Playbill</h2>
+                <form onSubmit={this.handleOnSubmit}>
+                    <label>Play Title:</label>
+                    <input type="text" value={this.state.playbill.title} onChange={this.handleOnChange}/>
+                    <button type="submit">Start This Playbill</button>
+                </form>
+            </div>
         )
     }
 }
