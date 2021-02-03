@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 // Get new playbill form
 import PlaybillForm from './containers/PlaybillForm';
 //get playbill index
-import PlaybillIndex from './components/PlaybillIndex';
+import PlaybillsIndex from './components/PlaybillsIndex';
 
 class App extends Component {
 
@@ -18,7 +18,7 @@ class App extends Component {
 
         <hr/>
 
-        <PlaybillIndex />
+        <PlaybillsIndex />
 
         <hr/>
 

@@ -6,14 +6,13 @@ import { getPlaybills } from '../actions/playbills';
 // get action to delete playbills
 import { deletePlaybill } from '../actions/playbills';
 
-class PlaybillIndex extends Component {
+class PlaybillsIndex extends Component {
 
     componentDidMount() {
         this.props.getPlaybills()
       }
     
       handleOnClick = (e) => {
-        // debugger
         this.props.deletePlaybill(e.target.id)
     }
 
@@ -39,4 +38,4 @@ const mapStateToProps = state => {
     }
   }
   
-export default connect(mapStateToProps, { getPlaybills, deletePlaybill })(PlaybillIndex);
+export default connect(mapStateToProps, { getPlaybills, deletePlaybill })(PlaybillsIndex);
