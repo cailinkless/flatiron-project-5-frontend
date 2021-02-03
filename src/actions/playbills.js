@@ -21,3 +21,13 @@ export const addPlaybill = playbill => {
         .then(playbill => dispatch({type: "PLAYBILL_ADDED", payload: playbill}))
     }
 }
+
+export const deletePlaybill = playbillId => {
+    return (dispatch) => {
+        dispatch({type: "DELETE_PLAYBILL"})
+        fetch(`/playbills/${playbillId}`, {
+            method: 'DELETE'
+            })
+        .then( () => dispatch({type: "PLAYBILL_DELETED", payload: playbillId}))
+    }
+}

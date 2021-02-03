@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { getPlaybills } from './actions/playbills';
 // Get new playbill form
 import PlaybillForm from './containers/PlaybillForm';
+// get action to delete playbills
+import { deletePlaybill } from './actions/playbills';
 
 class App extends Component {
 
@@ -13,9 +15,16 @@ class App extends Component {
     this.props.getPlaybills()
   }
 
+  handleOnClick = (e) => {
+    // debugger
+    this.props.deletePlaybill(e.target.id)
+  }
+
   render() {
+
     console.log("Rendering...")
-    const playbillLis = this.props.playbills.map(pb => <li key={pb.id}>{pb.title}</li>)
+    const playbillLis = this.props.playbills.map(pb => <li key={pb.id}>{pb.title} <button id={pb.id} onClick={this.handleOnClick}>Delete</button></li>)
+
     return (
       <div className="App">
 
@@ -49,4 +58,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getPlaybills })(App);
+export default connect(mapStateToProps, { getPlaybills, deletePlaybill })(App);

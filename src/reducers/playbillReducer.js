@@ -27,6 +27,20 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
                 loading: false
             }
 
+        case "DELETE_PLAYBILL":
+            return {
+                ...state,
+                loading: true
+            }
+
+        case "PLAYBILL_DELETED":
+            // debugger
+            return {
+                ...state,
+                playbills: [...state.playbills.filter(pb => pb.id != action.payload)],
+                loading: false
+            }
+
         default: 
             return state
     }
