@@ -4,8 +4,10 @@ import './App.css';
 import { connect } from 'react-redux';
 // Get new playbill form
 import PlaybillForm from './containers/PlaybillForm';
-//get playbill index
+//get playbills index
 import PlaybillsIndex from './components/PlaybillsIndex';
+//get playbill show
+import PlaybillShow from './components/PlaybillShow'
 
 class App extends Component {
 
@@ -23,6 +25,8 @@ class App extends Component {
         <hr/>
 
         <PlaybillForm />
+
+        <hr/>
 
       </div>
     );

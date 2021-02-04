@@ -1,4 +1,4 @@
-const playbillReducer = (state={playbills: [], loading: false}, action) => {
+const playbillReducer = (state={playbills: [], loading: false, selectedPlaybill: null}, action) => {
 
     switch(action.type) {
         case "LOADING_PLAYBILLS":
@@ -34,18 +34,24 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
             }
 
         case "PLAYBILL_DELETED":
-            // debugger
             return {
                 ...state,
                 playbills: [...state.playbills.filter(pb => pb.id != action.payload)],
                 loading: false
             }
 
-        // case "UPDATE_PLAYBILL":
-        //     return {
-        //         ...state,
-        //         loading: true
-        //     }
+        case "GET_PLAYBILL":
+            return {
+                ...state,
+                loading: true
+            }
+
+        case "PLAYBILL_LOADED":
+            return {
+                ...state,
+                selectedPlaybill: state.playbills.find(pb => pb.id == action.payload),
+                loading: false
+            }
 
         default: 
             return state
