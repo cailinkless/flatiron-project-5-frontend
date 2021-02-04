@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 // Get new playbill form
 import PlaybillForm from './containers/PlaybillForm';
 //get playbills index
-import PlaybillsIndex from './components/PlaybillsIndex';
+import PlaybillsIndex from './containers/PlaybillsIndex';
 //get playbill show
 import PlaybillShow from './components/PlaybillShow'
 
