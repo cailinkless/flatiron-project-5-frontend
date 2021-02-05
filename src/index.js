@@ -13,6 +13,10 @@ import rootReducer from './reducers/index';
 // Allow DevTools to be passed in with thunk
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+// Import react-router functions -Flatiron version:  import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+// Import react-router functions -educative.io version: import { BrowserRouter as Router } from 'react-router-dom'; import { Routes } from './routes'; // where we are going to specify our routes
+
 const store=createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(

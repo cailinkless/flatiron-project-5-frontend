@@ -1,37 +1,30 @@
 import React, {Component} from 'react';
 import './App.css';
-// Gain access to global state
-import { connect } from 'react-redux';
-// Get new playbill form
-import PlaybillForm from './containers/PlaybillForm';
-//get playbills index
-import PlaybillsIndex from './containers/PlaybillsIndex';
-//get playbill show
-import PlaybillShow from './components/PlaybillShow';
-// get branded header
-import TopLogo from './components/TopLogo';
+import { connect } from 'react-redux'; // Gain access to global state
+
+import { BrowserRouter as Router, Route } from 'react-router-dom'; // Import react-router functions
+
+import TopLogo from './components/TopLogo'; // get branded header
+import Home from './views/Home' // get Home view
 
 class App extends Component {
 
   render() {
-
+  
     return (
-      <div className="App">
+      <Router>
+        <div className="App">
 
-        <TopLogo />
+          <TopLogo />
 
-        <hr/>
+          <hr/>
 
-        <PlaybillsIndex />
+          <Route exact path="/" component={Home} />
 
-        <hr/>
-
-        <PlaybillForm />
-
-        <hr/>
-
-      </div>
+        </div>
+      </Router>
     );
+
   };
 
 };
