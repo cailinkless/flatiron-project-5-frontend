@@ -22,11 +22,6 @@ class PlaybillsIndex extends Component {
       this.props.deletePlaybill(e.target.id)
     }
 
-    handleView = (e) => {
-      debugger
-      this.props.getPlaybill(e.target.id)
-    }
-
     render() {
 
       console.log("Rendering...")
@@ -38,7 +33,7 @@ class PlaybillsIndex extends Component {
       </li>
       )
 
-      const AllPlaybillInfo = this.props.playbills.map(pb => <PlaybillTemplate playbill={pb} key={pb.id}/>)
+      // const AllPlaybillInfo = this.props.playbills.map(pb => <PlaybillTemplate playbill={pb} key={pb.id}/>)
     
       return (
         <div>
@@ -47,7 +42,7 @@ class PlaybillsIndex extends Component {
             <ul>{this.props.loading? <h3>Loading...</h3> : playbillLis}</ul>
           </div>
           
-          <div>{AllPlaybillInfo}</div>
+          {/* <div>{AllPlaybillInfo}</div> */}
 
         </div>
       );

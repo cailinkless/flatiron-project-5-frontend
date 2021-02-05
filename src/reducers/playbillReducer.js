@@ -8,7 +8,6 @@ const playbillReducer = (state={playbills: [], loading: false, selectedPlaybill:
             }
 
         case "PLAYBILLS_LOADED":
-            debugger
             return {
                 ...state,
                 playbills: action.payload,

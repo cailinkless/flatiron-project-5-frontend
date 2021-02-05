@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuoteCard = (props) =>
+const PlaybillTemplate = (props) =>
 
   <div>
         <h2>{props.playbill.title}</h2>
@@ -10,4 +10,4 @@ const QuoteCard = (props) =>
         </ul>
   </div>;
 
-export default QuoteCard;
+export default PlaybillTemplate;
