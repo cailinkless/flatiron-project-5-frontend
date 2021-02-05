@@ -5,8 +5,13 @@ import { connect } from 'react-redux';
 import { getPlaybills } from '../actions/playbills';
 // get action to delete playbills
 import { deletePlaybill } from '../actions/playbills';
+
 // get action to show specific playbill
 // import { getPlaybill } from '../actions/playbills'
+
+import PlaybillTemplate from '../components/PlaybillTemplate'
+
+
 
 class PlaybillsIndex extends Component {
 
@@ -28,11 +33,18 @@ class PlaybillsIndex extends Component {
       console.log("Rendering...")
       
       const playbillLis = this.props.playbills.map(pb => <li key={pb.id}>{pb.title}<button id={pb.id} onClick={this.handleView}>View</button><button id={pb.id} onClick={this.handleDelete}>Delete</button></li>)
+
+      const AllPlaybillInfo = this.props.playbills.map(pb => <PlaybillTemplate playbill={pb} key={pb.id}/>)
     
       return (
         <div>
-          <h2>Your Playbills</h2>
-          <ul>{this.props.loading? <h3>Loading...</h3> : playbillLis}</ul>
+          <div>
+            <h2>Your Playbills</h2>
+            <ul>{this.props.loading? <h3>Loading...</h3> : playbillLis}</ul>
+          </div>
+          
+          <div>{AllPlaybillInfo}</div>
+
         </div>
       );
     };

@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-// Presentational Component for Displaying Virtual Playbill
-const PlaybillTemplate = (props) => 
-    <div>
+const QuoteCard = (props) =>
 
-    </div>
-export default PlaybillTemplate;
+  <div>
+        <h2>{props.playbill.title}</h2>
+        <p>{props.playbill.about}</p>
+        <ul>
+            {props.playbill.credits.map(cred => <li>{cred.name} as {cred.role}</li>)}
+        </ul>
+  </div>;
+
+export default QuoteCard;

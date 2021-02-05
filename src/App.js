@@ -30,8 +30,6 @@ class App extends Component {
 
         <hr/>
 
-        <h1>TEMP: "Playbill Collection"</h1>
-
       </div>
     );
   };
