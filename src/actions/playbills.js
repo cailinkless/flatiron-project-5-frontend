@@ -19,7 +19,6 @@ export const addPlaybill = playbill => {
         })
         .then(res => res.json())
         .then(playbill => dispatch({type: "PLAYBILL_ADDED", payload: playbill}))
-        .then(window.location.href = "/")
     }
 }
 
