@@ -6,8 +6,7 @@ import { getPlaybills } from '../actions/playbills';
 // get action to delete playbills
 import { deletePlaybill } from '../actions/playbills';
 
-// get action to show specific playbill
-// import { getPlaybill } from '../actions/playbills'
+import {Link} from 'react-router-dom';
 
 import PlaybillTemplate from '../components/PlaybillTemplate'
 
@@ -32,7 +31,12 @@ class PlaybillsIndex extends Component {
 
       console.log("Rendering...")
       
-      const playbillLis = this.props.playbills.map(pb => <li key={pb.id}>{pb.title}<button id={pb.id} onClick={this.handleView}>View</button><button id={pb.id} onClick={this.handleDelete}>Delete</button></li>)
+      const playbillLis = this.props.playbills.map( pb => 
+      <li key={pb.id}>{pb.title} 
+        <Link to={"/playbills/" + pb.id}>View</Link>
+        <button id={pb.id} onClick={this.handleDelete}>Delete</button>
+      </li>
+      )
 
       const AllPlaybillInfo = this.props.playbills.map(pb => <PlaybillTemplate playbill={pb} key={pb.id}/>)
     
