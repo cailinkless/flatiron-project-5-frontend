@@ -22,10 +22,10 @@ class App extends Component {
 
           <hr/>
 
-          <Route path="/" component={Home} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/playbills/new" component={NewPlaybill} />
-          <Route exact path="/playbills/show-temp" component={ShowPlaybill} />
-          <Route exact path="/playbills/edit-temp" component={EditPlaybill} />
+          <Route exact path="/playbills/:playbillId" component={ShowPlaybill} />
+          <Route exact path="/playbills/:playbillId/edit" component={EditPlaybill} />
 
         </div>
       </Router>

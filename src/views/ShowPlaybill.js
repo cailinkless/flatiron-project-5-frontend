@@ -1,5 +1,7 @@
 import React from 'react'
 
+// Make sure to throw error if id number is not in database
+
 const ShowPlaybill = () => 
 
     <div>
