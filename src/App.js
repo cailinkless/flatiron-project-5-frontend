@@ -25,7 +25,7 @@ class App extends Component {
           <hr/>
 
           <Route exact path="/" component={Home} />
-          <Route exact path="/playbills/new" component={NewPlaybill} />
+          <Route exact path="/newplaybill" component={NewPlaybill} />
           <Route exact path="/playbills/:playbillId" component={ShowPlaybill} />
           <Route exact path="/playbills/:playbillId/edit" component={EditPlaybill} />
 
