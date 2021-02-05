@@ -31,3 +31,17 @@ export const deletePlaybill = playbillId => {
         .then( () => dispatch({type: "PLAYBILL_DELETED", payload: playbillId}))
     }
 }
+
+export const updatePlaybill = playbill => {
+    return (dispatch) => {
+        dispatch({type: "UPDATE_PLAYBILL"})
+        fetch(`/playbills/${playbill.id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(playbill),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then( () => dispatch({type: "PLAYBILL_UPDATED", payload: playbill}))
+    }
+}

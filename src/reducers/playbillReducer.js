@@ -40,16 +40,16 @@ const playbillReducer = (state={playbills: [], loading: false, selectedPlaybill:
                 loading: false
             }
 
-        case "GET_PLAYBILL":
+        case "UPDATE_PLAYBILL":
             return {
                 ...state,
                 loading: true
             }
 
-        case "PLAYBILL_LOADED":
+        case "PLAYBILL_UPDATED":
             return {
                 ...state,
-                selectedPlaybill: state.playbills.find(pb => pb.id == action.payload),
+                playbills: [...state.playbills, action.payload],
                 loading: false
             }
 
