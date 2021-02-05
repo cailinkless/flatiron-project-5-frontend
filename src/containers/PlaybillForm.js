@@ -28,7 +28,7 @@ class PlaybillForm extends Component {
         const playbill = {...this.state.playbill}
         console.log(playbill)
         this.props.addPlaybill(playbill)
-        this.props.history.push('/')
+        // this.props.history.push('/')
     }
 
     render() {
