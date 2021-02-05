@@ -1,4 +1,4 @@
-const playbillReducer = (state={playbills: [], loading: false, selectedPlaybill: null}, action) => {
+const playbillReducer = (state={playbills: [], loading: false}, action) => {
 
     switch(action.type) {
         case "LOADING_PLAYBILLS":

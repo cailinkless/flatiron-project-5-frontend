@@ -10,7 +10,7 @@ class CreditForm extends Component {
             role: "",
             bio: "",
             cast: false,
-            playbill_id: this.props.playbillId // get this into props
+            playbill_id: this.props.playbillId
         },
         loading: false
     }
@@ -28,8 +28,16 @@ class CreditForm extends Component {
         e.preventDefault()
         const credit = {...this.state.credit}
         console.log(credit)
-        this.props.addCredit(credit) // write this
-        // this.props.history.push('/') // figure out where this should go
+        this.props.addCredit(credit)
+        this.setState({
+            credit: {
+                name: "",
+                role: "",
+                bio: "",
+                cast: false,
+                playbill_id: this.props.playbillId
+            }
+        })
     }
 
     render() {
@@ -40,11 +48,11 @@ class CreditForm extends Component {
                     <label>Name:</label>
                     <input name="name" type="text" value={this.state.credit.name} onChange={this.handleOnChange}/>
 
-                    <label>Category:</label>
+                    {/* <label>Category:</label>
                     <input name="cast" type="radio" value="true"></input>
                     <label for="cast">Cast</label>
                     <input name="noncast" type="radio" value="false"></input>
-                    <label for="noncast">Crew (includes writer, director, etc...)</label>
+                    <label for="noncast">Crew (includes writer, director, etc...)</label> */}
 
                     <label>Role:</label>
                     <input name="role" type="text" value={this.state.credit.role} onChange={this.handleOnChange}/>

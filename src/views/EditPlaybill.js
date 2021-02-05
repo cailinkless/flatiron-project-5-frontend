@@ -8,6 +8,8 @@ import { getPlaybills } from '../actions/playbills'; // Add action to load playb
 
 import PlaybillEditForm from '../containers/PlaybillEditForm'
 
+import CreditForm from '../containers/CreditForm';
+
 class EditPlaybill extends Component {
 
     componentDidMount() {
@@ -22,6 +24,7 @@ class EditPlaybill extends Component {
             <div>
                 <h1>I'm the Edit Playbill View!</h1>
                 <PlaybillEditForm selectedPlaybill={selectplaybill}/>
+                <CreditForm playbillId={selectplaybill.id}/>
             </div>
         );
     }

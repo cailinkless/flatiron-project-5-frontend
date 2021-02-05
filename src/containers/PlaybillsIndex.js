@@ -17,7 +17,7 @@ class PlaybillsIndex extends Component {
     componentDidMount() {
       this.props.getPlaybills()
     }
-    
+
     handleDelete = (e) => {
       this.props.deletePlaybill(e.target.id)
     }
@@ -33,18 +33,11 @@ class PlaybillsIndex extends Component {
         <button id={pb.id} onClick={this.handleDelete}>Delete</button>
       </li>
       )
-
-      // const AllPlaybillInfo = this.props.playbills.map(pb => <PlaybillTemplate playbill={pb} key={pb.id}/>)
     
       return (
         <div>
-          <div>
-            <h2>Your Playbills</h2>
-            <ul>{this.props.loading? <h3>Loading...</h3> : playbillLis}</ul>
-          </div>
-          
-          {/* <div>{AllPlaybillInfo}</div> */}
-
+          <h2>Your Playbills</h2>
+          <ul>{this.props.loading? <h3>Loading...</h3> : playbillLis}</ul>
         </div>
       );
     };

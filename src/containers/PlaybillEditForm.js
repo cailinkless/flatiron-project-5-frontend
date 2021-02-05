@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { updatePlaybill } from '../actions/playbills'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom';
 
 class PlaybillEditForm extends Component {
 
@@ -24,13 +25,13 @@ class PlaybillEditForm extends Component {
         console.log(playbill)
         debugger
         this.props.updatePlaybill(playbill)
-        // this.props.history.push('/')
+        this.props.history.push('/')
     }
 
     render() {
         return (
             <div>
-                <h2>Start New Playbill</h2>
+                <h2>Production Info:</h2>
                 <form onSubmit={this.handleOnSubmit}>
                     <label>Play Title:</label>
                     <input name="title" type="text" value={this.state.playbill.title} onChange={this.handleOnChange}/>
@@ -42,11 +43,12 @@ class PlaybillEditForm extends Component {
                     <p>Add a Credit!</p>
                     <p>Add a Showtime!</p>
                     
-                    <button type="submit">Start This Playbill</button>
+                    <button type="submit">Save Production Info</button>
                 </form>
             </div>
         )
     }
 }
 
-export default connect(null, { updatePlaybill })(PlaybillEditForm)
+// export default connect(null, { updatePlaybill })(PlaybillEditForm)
+export default withRouter(connect(null, { updatePlaybill })(PlaybillEditForm))
