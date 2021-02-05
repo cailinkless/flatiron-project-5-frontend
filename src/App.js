@@ -4,6 +4,8 @@ import { connect } from 'react-redux'; // Gain access to global state
 
 import { BrowserRouter as Router, Route } from 'react-router-dom'; // Import react-router functions
 
+import {Link} from 'react-router-dom';
+
 import TopLogo from './components/TopLogo'; // get branded header
 
 //Move these to a routes component and then import them as one?
@@ -21,8 +23,6 @@ class App extends Component {
         <div className="App">
 
           <TopLogo />
-
-          <hr/>
 
           <Route exact path="/" component={Home} />
           <Route exact path="/newplaybill" component={NewPlaybill} />

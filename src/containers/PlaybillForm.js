@@ -18,7 +18,7 @@ class PlaybillForm extends Component {
         this.setState({...this.state,
             playbill: {
                 ...this.state.playbill,
-                title: e.target.value
+                [e.target.name]: e.target.value
             }
         })
     }
@@ -43,14 +43,14 @@ class PlaybillForm extends Component {
                 <h2>Start New Playbill</h2>
                 <form onSubmit={this.handleOnSubmit}>
                     <label>Play Title:</label>
-                    <input type="text" value={this.state.playbill.title} onChange={this.handleOnChange}/>
+                    <input name="title" type="text" value={this.state.playbill.title} onChange={this.handleOnChange}/>
                     
                     <label>Show Notes:</label>
-                    <input type="textarea"></input>
+                    <input name="about" type="textarea" value={this.state.playbill.about} onChange={this.handleOnChange}/>
 
                     <br></br>
-                    <p>Add a Showtime!</p>
                     <p>Add a Credit!</p>
+                    <p>Add a Showtime!</p>
                     
                     <button type="submit">Start This Playbill</button>
                 </form>
