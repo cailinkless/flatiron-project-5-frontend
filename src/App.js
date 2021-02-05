@@ -26,8 +26,8 @@ class App extends Component {
 
           <Route exact path="/" component={Home} />
           <Route exact path="/newplaybill" component={NewPlaybill} />
-          <Route exact path="/playbills/:playbillId" component={ShowPlaybill} />
-          <Route exact path="/playbills/:playbillId/edit" component={EditPlaybill} />
+          <Route path="/playbills/:playbillId" component={ShowPlaybill} />
+          <Route path="/edit/:playbillId" component={EditPlaybill} />
 
         </div>
       </Router>

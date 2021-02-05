@@ -29,6 +29,7 @@ class PlaybillsIndex extends Component {
       const playbillLis = this.props.playbills.map( pb => 
       <li key={pb.id}>{pb.title} 
         <Link to={"/playbills/" + pb.id}>View</Link>
+        <Link to={"/edit/" + pb.id}>Edit</Link>
         <button id={pb.id} onClick={this.handleDelete}>Delete</button>
       </li>
       )
