@@ -7,7 +7,9 @@ import PlaybillForm from './containers/PlaybillForm';
 //get playbills index
 import PlaybillsIndex from './containers/PlaybillsIndex';
 //get playbill show
-import PlaybillShow from './components/PlaybillShow'
+import PlaybillShow from './components/PlaybillShow';
+// get branded header
+import TopLogo from './components/TopLogo';
 
 class App extends Component {
 
@@ -16,7 +18,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <h1>Playbill Dashboard</h1>
+        <TopLogo />
 
         <hr/>
 
@@ -27,6 +29,8 @@ class App extends Component {
         <PlaybillForm />
 
         <hr/>
+
+        <h1>TEMP: "Playbill Collection"</h1>
 
       </div>
     );

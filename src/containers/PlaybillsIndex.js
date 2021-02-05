@@ -6,7 +6,7 @@ import { getPlaybills } from '../actions/playbills';
 // get action to delete playbills
 import { deletePlaybill } from '../actions/playbills';
 // get action to show specific playbill
-import { getPlaybill } from '../actions/playbills'
+// import { getPlaybill } from '../actions/playbills'
 
 class PlaybillsIndex extends Component {
 
@@ -46,4 +46,4 @@ const mapStateToProps = state => {
     }
 }
   
-export default connect(mapStateToProps, { getPlaybills, deletePlaybill, getPlaybill })(PlaybillsIndex);
+export default connect(mapStateToProps, { getPlaybills, deletePlaybill })(PlaybillsIndex);

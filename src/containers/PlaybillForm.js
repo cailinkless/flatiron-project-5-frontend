@@ -8,6 +8,8 @@ class PlaybillForm extends Component {
         playbill: {
             title: "",
             about: ""
+            // credits: [],
+            // showtimes: []
         },
         loading: false
     }
@@ -42,6 +44,14 @@ class PlaybillForm extends Component {
                 <form onSubmit={this.handleOnSubmit}>
                     <label>Play Title:</label>
                     <input type="text" value={this.state.playbill.title} onChange={this.handleOnChange}/>
+                    
+                    <label>Show Notes:</label>
+                    <input type="textarea"></input>
+
+                    <br></br>
+                    <p>Add a Showtime!</p>
+                    <p>Add a Credit!</p>
+                    
                     <button type="submit">Start This Playbill</button>
                 </form>
             </div>

@@ -32,12 +32,12 @@ export const deletePlaybill = playbillId => {
     }
 }
 
-export const getPlaybill = playbillId => {
-    debugger
-    return (dispatch) => {
-        dispatch({type: "GET_PLAYBILL"})
-        fetch(`/playbills/${playbillId}`)
-        .then(res => res.json())
-        .then(playbill => dispatch({type: "PLAYBILL_LOADED", payload: playbill.id}))
-    }
-}
+// export const getPlaybill = playbillId => {
+//     debugger
+//     return (dispatch) => {
+//         dispatch({type: "GET_PLAYBILL"})
+//         fetch(`/playbills/${playbillId}`)
+//         .then(res => res.json())
+//         .then(playbill => dispatch({type: "PLAYBILL_LOADED", payload: playbill.id}))
+//     }
+// }
