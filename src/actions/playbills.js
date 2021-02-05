@@ -19,6 +19,7 @@ export const addPlaybill = playbill => {
         })
         .then(res => res.json())
         .then(playbill => dispatch({type: "PLAYBILL_ADDED", payload: playbill}))
+        .then(window.location.href = "/")
     }
 }
 
@@ -31,13 +32,3 @@ export const deletePlaybill = playbillId => {
         .then( () => dispatch({type: "PLAYBILL_DELETED", payload: playbillId}))
     }
 }
-
-// export const getPlaybill = playbillId => {
-//     debugger
-//     return (dispatch) => {
-//         dispatch({type: "GET_PLAYBILL"})
-//         fetch(`/playbills/${playbillId}`)
-//         .then(res => res.json())
-//         .then(playbill => dispatch({type: "PLAYBILL_LOADED", payload: playbill.id}))
-//     }
-// }

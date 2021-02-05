@@ -28,13 +28,13 @@ class PlaybillForm extends Component {
         const playbill = {...this.state.playbill}
         console.log(playbill)
         this.props.addPlaybill(playbill)
-        this.setState({
-            playbill: {
-                title: "",
-                about: ""
-            },
-            loading: false
-        })
+        // this.setState({
+        //     playbill: {
+        //         title: "",
+        //         about: ""
+        //     },
+        //     loading: false
+        // })
     }
 
     render() {
