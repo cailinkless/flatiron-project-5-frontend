@@ -8,6 +8,8 @@ import { getPlaybills } from '../actions/playbills'; // Add action to load playb
 
 import PlaybillTemplate from '../components/PlaybillTemplate';
 
+import CreditsIndex from '../containers/CreditsIndex';
+
 import CreditForm from '../containers/CreditForm';
 
 class ShowPlaybill extends Component {
@@ -20,6 +22,8 @@ class ShowPlaybill extends Component {
             <div>
                 <h1>I'm the Show Playbill View!</h1>
                 <PlaybillTemplate playbill={selectplaybill}/>
+                <hr></hr>
+                <CreditsIndex playbill={selectplaybill}/>
             </div>
         );
     }

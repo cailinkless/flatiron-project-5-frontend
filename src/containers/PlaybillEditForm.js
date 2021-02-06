@@ -38,10 +38,6 @@ class PlaybillEditForm extends Component {
                     
                     <label>Show Notes:</label>
                     <input name="about" type="textarea" value={this.state.playbill.about} onChange={this.handleOnChange}/>
-
-                    <br></br>
-                    <p>Add a Credit!</p>
-                    <p>Add a Showtime!</p>
                     
                     <button type="submit">Save Production Info</button>
                 </form>
