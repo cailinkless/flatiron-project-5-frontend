@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import { connect } from 'react-redux'; // Gain access to global state
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; // Import react-router functions
-
 import {Link} from 'react-router-dom';
 
 import TopLogo from './components/TopLogo'; // get branded header

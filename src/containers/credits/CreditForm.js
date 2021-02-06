@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { addCredit } from '../actions/credits'
+import { addCredit } from '../../actions/credits'
 import { connect } from 'react-redux'
 
 class CreditForm extends Component {

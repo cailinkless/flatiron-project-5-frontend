@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { updatePlaybill } from '../actions/playbills'
+import { updatePlaybill } from '../../actions/playbills'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 // Get new playbill form
-import PlaybillForm from '../containers/PlaybillForm';
+import PlaybillForm from '../containers/playbills/PlaybillForm';
 
 class NewPlaybill extends Component {
 

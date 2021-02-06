@@ -2,15 +2,9 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'; // Gain access to global state
 
-import { getPlaybills } from '../actions/playbills'; // Add action to load playbills
-
-// Make sure to throw error if id number is not in database
-
 import PlaybillTemplate from '../components/PlaybillTemplate';
 
-import CreditsIndex from '../containers/CreditsIndex';
-
-import CreditForm from '../containers/CreditForm';
+import CreditsIndex from '../containers/credits/CreditsIndex';
 
 class ShowPlaybill extends Component {
 

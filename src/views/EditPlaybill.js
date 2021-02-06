@@ -6,9 +6,9 @@ import { getPlaybills } from '../actions/playbills'; // Add action to load playb
 
 // Make sure to throw error if id number is not in database
 
-import PlaybillEditForm from '../containers/PlaybillEditForm'
+import PlaybillEditForm from '../containers/playbills/PlaybillEditForm'
 
-import CreditForm from '../containers/CreditForm';
+import CreditForm from '../containers/credits/CreditForm';
 
 class EditPlaybill extends Component {
 

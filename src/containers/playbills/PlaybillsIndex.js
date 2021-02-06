@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 // Gain access to global state
 import { connect } from 'react-redux';
 // Add action to load playbills
-import { getPlaybills } from '../actions/playbills';
+import { getPlaybills } from '../../actions/playbills';
 // get action to delete playbills
-import { deletePlaybill } from '../actions/playbills';
+import { deletePlaybill } from '../../actions/playbills';
 
 import {Link} from 'react-router-dom';
 
