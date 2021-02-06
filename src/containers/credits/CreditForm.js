@@ -1,35 +1,38 @@
-import React, { Component } from 'react'
-import { addCredit } from '../../actions/credits'
-import { connect } from 'react-redux'
+import React, { Component } from 'react' // allows for a component class
+import { addCredit } from '../../actions/credits' // grabs the addCredit action
+import { connect } from 'react-redux' // allows access to redux global state / dispatch
 
 class CreditForm extends Component {
 
-    state={
+    // Set initial local state
+    state={ 
         credit: {
             name: "",
             role: "",
             bio: "",
             cast: false,
-            playbill_id: this.props.playbillId
+            playbill_id: this.props.playbillId // assigns credit to the current playbill (must be passed in by parent)
         },
         loading: false
     }
 
-    handleOnChange = e => {
-        this.setState({...this.state,
+    // Allow local state to keep track of user inputs
+    handleOnChange = e => { // takes in change event
+        this.setState({...this.state, // starts with current state
             credit: {
-                ...this.state.credit,
-                [e.target.name]: e.target.value
+                ...this.state.credit, // starts with current credit
+                [e.target.name]: e.target.value // makes assigned changes to current credit
             }
         })
     }
 
-    handleOnSubmit = e => {
-        e.preventDefault()
-        const credit = {...this.state.credit}
-        console.log(credit)
-        this.props.addCredit(credit)
-        this.setState({
+    // Create new credit in the API and add it to global state
+    handleOnSubmit = e => { // takes in the submit event
+        e.preventDefault() // prevents submitting to a nonexistant backend
+        const credit = {...this.state.credit} // save local state into variable
+        console.log(credit) // for reference in development
+        this.props.addCredit(credit) // action call
+        this.setState({ // clears local state (and by extension form) for new input
             credit: {
                 name: "",
                 role: "",
@@ -67,4 +70,4 @@ class CreditForm extends Component {
     }
 }
 
-export default connect(null, { addCredit })(CreditForm)
+export default connect(null, { addCredit })(CreditForm) // connects addCredit action to CreditForm
