@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PlaybillTemplate = (props) =>
+const PlaybillTemplate = (props) => // takes in props from parent and displays a formatted version
 
   <div>
         <h2>{props.playbill.title}</h2>
