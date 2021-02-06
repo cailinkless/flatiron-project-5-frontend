@@ -8,8 +8,6 @@ import { deletePlaybill } from '../actions/playbills';
 
 import {Link} from 'react-router-dom';
 
-import PlaybillTemplate from '../components/PlaybillTemplate'
-
 
 
 class PlaybillsIndex extends Component {
@@ -29,7 +27,7 @@ class PlaybillsIndex extends Component {
       const playbillLis = this.props.playbills.map( pb => 
       <li key={pb.id}>{pb.title} 
         <Link to={"/playbills/" + pb.id}>View</Link>
-        <Link to={"/edit/" + pb.id}>Edit</Link>
+        <Link to={"/playbills/" + pb.id + "/edit"}>Edit</Link>
         <button id={pb.id} onClick={this.handleDelete}>Delete</button>
       </li>
       )

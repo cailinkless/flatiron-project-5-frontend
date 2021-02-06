@@ -12,10 +12,6 @@ import CreditForm from '../containers/CreditForm';
 
 class ShowPlaybill extends Component {
 
-    componentDidMount() {
-        this.props.getPlaybills()
-    }
-
     render() {
 
         const selectplaybill = this.props.playbills.find(pb => pb.id === parseInt(this.props.match.params.playbillId))
@@ -37,4 +33,4 @@ const mapStateToProps = state => {
     }
 }
   
-export default connect(mapStateToProps, {getPlaybills})(ShowPlaybill);
+export default connect(mapStateToProps)(ShowPlaybill);

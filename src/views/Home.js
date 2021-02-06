@@ -11,7 +11,7 @@ const Home = () =>
     <div>
         <PlaybillsIndex />
         <hr/>
-        <h2><Link to="/newplaybill">Start New Playbill</Link></h2>
+        <h2><Link to="/playbills/new">Start New Playbill</Link></h2>
         <hr/>
     </div>
 

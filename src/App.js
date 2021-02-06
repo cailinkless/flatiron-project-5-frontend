@@ -27,15 +27,10 @@ class App extends Component {
           <TopLogo />
 
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/newplaybill" component={NewPlaybill} />
-{/* 
-            <Route
-                path='/newplaybill'
-                render={(props) => (<NewPlaybill {...props} history={this.props.history} />)}/> */}
-
+            <Route path="/playbills/new" component={NewPlaybill} />
+            <Route path="/playbills/:playbillId/edit" component={EditPlaybill} />
             <Route path="/playbills/:playbillId" component={ShowPlaybill} />
-            <Route path="/edit/:playbillId" component={EditPlaybill} />
+            <Route path="/" component={Home} />
           </Switch>
 
         </div>
