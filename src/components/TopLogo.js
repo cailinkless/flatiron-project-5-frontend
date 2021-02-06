@@ -1,7 +1,6 @@
 import React from 'react'
 
-// Presentational Component for Displaying Logo
-const TopLogo = () => 
+const TopLogo = () =>  // Presentational Component for Displaying Logo
     <header>
         <div class="content-wrapper">
             <div class="logo-wrapper">
