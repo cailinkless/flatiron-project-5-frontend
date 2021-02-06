@@ -10,7 +10,7 @@ class CreditForm extends Component {
             name: "",
             role: "",
             bio: "",
-            cast: false,
+            cast: "",
             playbill_id: this.props.playbillId // assigns credit to the current playbill (must be passed in by parent)
         },
         loading: false
@@ -21,7 +21,7 @@ class CreditForm extends Component {
         this.setState({...this.state, // starts with current state
             credit: {
                 ...this.state.credit, // starts with current credit
-                [e.target.name]: e.target.value // makes assigned changes to current credit
+                [e.target.name]: e.target.value, // makes assigned changes to current credit
             }
         })
     }
@@ -29,6 +29,18 @@ class CreditForm extends Component {
     // Create new credit in the API and add it to global state
     handleOnSubmit = e => { // takes in the submit event
         e.preventDefault() // prevents submitting to a nonexistant backend
+
+        //workaround to change radio value into true boolean
+
+        if (this.state.credit.cast === "true") {
+            this.setState({...this.state,
+                credit: {
+                    ...this.state.credit,
+                    cast: true
+                }
+            })
+        }
+
         const credit = {...this.state.credit} // save local state into variable
         console.log(credit) // for reference in development
         this.props.addCredit(credit) // action call
@@ -37,7 +49,7 @@ class CreditForm extends Component {
                 name: "",
                 role: "",
                 bio: "",
-                cast: false,
+                cast: "",
                 playbill_id: this.props.playbillId
             }
         })
@@ -51,11 +63,11 @@ class CreditForm extends Component {
                     <label>Name:</label>
                     <input name="name" type="text" value={this.state.credit.name} onChange={this.handleOnChange}/>
 
-                    {/* <label>Category:</label>
-                    <input name="cast" type="radio" value="true"></input>
+                    <label>Category:</label>
+                    <input name="cast" type="radio" value="true" onChange={this.handleOnChange}></input>
                     <label for="cast">Cast</label>
-                    <input name="noncast" type="radio" value="false"></input>
-                    <label for="noncast">Crew (includes writer, director, etc...)</label> */}
+                    <input name="cast" type="radio" value="false" onChange={this.handleOnChange}></input>
+                    <label for="cast">Crew (includes writer, director, etc...)</label>
 
                     <label>Role:</label>
                     <input name="role" type="text" value={this.state.credit.role} onChange={this.handleOnChange}/>
