@@ -10,6 +10,8 @@ import PlaybillEditForm from '../containers/playbills/PlaybillEditForm'
 
 import CreditForm from '../containers/credits/CreditForm';
 
+import CreditsIndex from '../containers/credits/CreditsIndex'
+
 class EditPlaybill extends Component {
 
     componentDidMount() {

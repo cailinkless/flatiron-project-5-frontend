@@ -53,6 +53,11 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
                 loading: false
             }
 
+
+
+// Alternate Ideas - Probably delete
+
+
         case "DELETE_PLAYBILLCREDIT":
             return {
                 ...state,

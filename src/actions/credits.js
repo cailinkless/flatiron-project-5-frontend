@@ -33,3 +33,17 @@ export const deleteCredit = creditId => { // takes in the id number of a specifi
         .then( () => dispatch({type: "CREDIT_DELETED", payload: creditId})) // updates global state to disinclude deleted credit, sets loading to false
     }
 }
+
+export const updateCredit = credit => { // takes in a specific credit as a JS Object
+    return (dispatch) => {
+        dispatch({type: "UPDATE_CREDIT"}) // sets loading to true
+        fetch(`/credits/${credit.id}`, { // makes call to backend API
+            method: 'PATCH', // signifies that call will be updating a Credit record in the database
+            body: JSON.stringify(credit), // converts Credit from JS Object to a JSON string
+            headers: {
+                'Content-Type': 'application/json' // marks content type for informational purposes
+            }
+        })
+        .then( () => dispatch({type: "CREDIT_UPDATED", payload: credit})) // updates global state to reflect the changed credit, sets loading to false
+    }
+}

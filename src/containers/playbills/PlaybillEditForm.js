@@ -23,7 +23,6 @@ class PlaybillEditForm extends Component {
         e.preventDefault()
         const playbill = {...this.state.playbill}
         console.log(playbill)
-        debugger
         this.props.updatePlaybill(playbill)
         this.props.history.push('/')
     }

@@ -12,6 +12,8 @@ import NewPlaybill from './views/NewPlaybill' // get new playbill view
 import ShowPlaybill from './views/ShowPlaybill' // get show playbill view
 import EditPlaybill from './views/EditPlaybill' // get edit playbill view
 
+import EditCredit from './views/EditCredit'
+
 // Add A Switch
 
 class App extends Component {
@@ -28,6 +30,9 @@ class App extends Component {
             <Route path="/playbills/new" component={NewPlaybill} />
             <Route path="/playbills/:playbillId/edit" component={EditPlaybill} />
             <Route path="/playbills/:playbillId" component={ShowPlaybill} />
+
+            <Route path="/credits/:creditId/edit" component={EditCredit} />
+
             <Route path="/" component={Home} />
           </Switch>
 

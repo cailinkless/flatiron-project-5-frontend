@@ -42,6 +42,19 @@ const creditReducer = (state={credits: [], loading: false}, action) => {
                 loading: false
             }
 
+        case "UPDATE_CREDIT":
+            return {
+                ...state,
+                loading: true
+            }
+    
+        case "CREDIT_UPDATED":
+            return {
+                ...state,
+                credits: [...state.credits, action.payload],
+                loading: false
+            }
+
         default: 
             return state
     }

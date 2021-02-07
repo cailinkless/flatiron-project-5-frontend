@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { getCredits, deleteCredit } from '../../actions/credits';
 import { deletePlaybillCredit } from '../../actions/playbills'
 
+import {Link} from 'react-router-dom';
+
 class CreditsIndex extends Component {
 
     componentDidMount() {
@@ -27,6 +29,7 @@ class CreditsIndex extends Component {
               <p>Name: {c.name}</p>
               <p>Role: {c.role}</p>
               <p>Bio: {c.bio}</p>
+              <Link to={"/credits/" + c.id + "/edit"}>Edit Credit</Link>
               <button id={c.id} onClick={this.handleDelete}>Delete Credit</button>
               <button id={c.id} onClick={this.handleSpecialDelete}>Special Delete</button>
               <hr/>
