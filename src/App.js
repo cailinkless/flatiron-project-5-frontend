@@ -13,6 +13,7 @@ import ShowPlaybill from './views/ShowPlaybill' // get show playbill view
 import EditPlaybill from './views/EditPlaybill' // get edit playbill view
 
 import EditCredit from './views/EditCredit'
+import NewCredit from './views/NewCredit'
 
 // Add A Switch
 
@@ -27,9 +28,14 @@ class App extends Component {
           <TopLogo />
 
           <Switch>
+
+            <Route path="/playbills/:playbillId/credits/new" component={NewCredit} />
+
             <Route path="/playbills/new" component={NewPlaybill} />
             <Route path="/playbills/:playbillId/edit" component={EditPlaybill} />
             <Route path="/playbills/:playbillId" component={ShowPlaybill} />
+
+            
 
             <Route path="/credits/:creditId/edit" component={EditCredit} />
 

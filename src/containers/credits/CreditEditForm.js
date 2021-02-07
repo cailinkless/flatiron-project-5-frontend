@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { updateCredit } from '../../actions/credits';
+import { updateCredit, deleteCredit } from '../../actions/credits';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -37,6 +37,11 @@ class CreditEditForm extends Component {
         this.props.history.push('/')
     }
 
+    handleDelete = (e) => {
+        this.props.deleteCredit(e.target.id, this.state.credit.playbill_id);
+        this.props.history.push(`/`);
+    }
+
 render() {
         return (
             <div>
@@ -59,9 +64,10 @@ render() {
                     
                     <button type="submit">Update This Credit</button>
                 </form>
+                <button id={this.state.credit.id} onClick={this.handleDelete}>Delete Credit</button>
             </div>
         )
     }
 }
 
-export default withRouter(connect(null, { updateCredit })(CreditEditForm))
+export default withRouter(connect(null, { updateCredit, deleteCredit })(CreditEditForm))

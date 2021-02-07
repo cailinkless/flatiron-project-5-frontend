@@ -2,21 +2,13 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'; // Gain access to global state
 
-import { getPlaybills } from '../actions/playbills'; // Add action to load playbills
-
-// Make sure to throw error if id number is not in database
-
 import PlaybillEditForm from '../containers/playbills/PlaybillEditForm'
-
-import CreditForm from '../containers/credits/CreditForm';
 
 import CreditsIndex from '../containers/credits/CreditsIndex'
 
-class EditPlaybill extends Component {
+import {Link} from 'react-router-dom';
 
-    componentDidMount() {
-        this.props.getPlaybills()
-    }
+class EditPlaybill extends Component {
 
     render() {
 
@@ -27,7 +19,7 @@ class EditPlaybill extends Component {
                 <h1>I'm the Edit Playbill View!</h1>
                 <PlaybillEditForm selectedPlaybill={selectplaybill}/>
                 <CreditsIndex playbill={selectplaybill}/>
-                <CreditForm playbillId={selectplaybill.id}/>
+                <Link to={"/playbills/" + selectplaybill.id + "/credits/new"}>Add Credit</Link>
             </div>
         );
     }
@@ -41,4 +33,4 @@ const mapStateToProps = state => {
     }
 }
   
-export default connect(mapStateToProps, {getPlaybills})(EditPlaybill);
+export default connect(mapStateToProps)(EditPlaybill);

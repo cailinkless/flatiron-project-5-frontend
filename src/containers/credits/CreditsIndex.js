@@ -12,10 +12,6 @@ class CreditsIndex extends Component {
         this.props.deleteCredit(e.target.id, this.props.playbill.id);
         this.props.history.push(`/`);
     }
-
-    // handleSpecialDelete = (e) => {
-    //     this.props.deletePlaybillCredit(e.target.id);
-    // }
     
     render() {
         const creditDivs = this.props.playbill.credits.map( c => 
@@ -24,8 +20,6 @@ class CreditsIndex extends Component {
               <p>Role: {c.role}</p>
               <p>Bio: {c.bio}</p>
               <Link to={"/credits/" + c.id + "/edit"}>Edit Credit</Link>
-              <button id={c.id} onClick={this.handleDelete}>Delete Credit</button>
-              {/* <button id={c.id} onClick={this.handleSpecialDelete}>Special Delete</button> */}
               <hr/>
             </div>
         )

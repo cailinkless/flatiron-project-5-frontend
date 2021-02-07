@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'; // Gain access to global state
 
-import PlaybillTemplate from '../components/PlaybillTemplate';
+import CreditForm from '../containers/credits/CreditForm';
 
-import CreditsIndex from '../containers/credits/CreditsIndex';
-
-class ShowPlaybill extends Component {
+class NewCredit extends Component {
 
     render() {
 
@@ -14,7 +12,8 @@ class ShowPlaybill extends Component {
 
         return (
             <div>
-                <PlaybillTemplate playbill={selectplaybill}/>
+                <h1>Add New Credit</h1>
+                <CreditForm playbillId={selectplaybill.id}/>
             </div>
         );
     }
@@ -28,4 +27,4 @@ const mapStateToProps = state => {
     }
 }
   
-export default connect(mapStateToProps)(ShowPlaybill);
+export default connect(mapStateToProps)(NewCredit);

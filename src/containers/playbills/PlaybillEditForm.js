@@ -24,7 +24,7 @@ class PlaybillEditForm extends Component {
         const playbill = {...this.state.playbill}
         console.log(playbill)
         this.props.updatePlaybill(playbill)
-        this.props.history.push('/')
+        this.props.history.push(`/playbills/${playbill.id}`)
     }
 
     render() {

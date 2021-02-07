@@ -8,8 +8,6 @@ class NewPlaybill extends Component {
     render() {
         return (
         <div>
-            <h1>I'm the New Playbill View!</h1>
-            <hr/>
             <PlaybillForm />
         </div>
         )

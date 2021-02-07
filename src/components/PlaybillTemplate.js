@@ -18,8 +18,6 @@ state = {
 
 render() {
 
-  debugger
-
   return (
     <div>
 
