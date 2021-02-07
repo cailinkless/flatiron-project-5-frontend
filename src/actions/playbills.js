@@ -47,3 +47,13 @@ export const updatePlaybill = playbill => { // takes in the id number of a speci
         .then( () => dispatch({type: "PLAYBILL_UPDATED", payload: playbill})) // updates global state with the new version of the playbill, sets loading to false
     }
 }
+
+export const deletePlaybillCredit = credit => { // takes in the id number of a specific playbill
+    return (dispatch) => {
+        dispatch({type: "DELETE_PLAYBILLCREDIT"}) // sets loading to true
+        fetch(`/playbills/${credit.playbill_id}/credits/${credit.id}`, { // makes call to backend API
+            method: 'DELETE' // signifies that call will be deleting a Playbill record from the database
+            })
+        .then( () => dispatch({type: "PLAYBILLCREDIT_DELETED", payload: credit})) // updates global state to disinclude deleted playbill, sets loading to false
+    }
+}

@@ -1,5 +1,14 @@
 // CRUD actions for the Credit model
 
+export const getCredits = () => {
+    return (dispatch) => {
+        dispatch({type: "LOADING_CREDITS"}) // sets loading to true
+        fetch('/credits') // makes call to backend API
+        .then(res => res.json()) // parses the response to JSON
+        .then(credits => dispatch({type: "CREDITS_LOADED", payload: credits})) // adds credits to the global state, sets loading to false
+    }
+}
+
 export const addCredit = credit => { // takes in new Credit as a JavaScript object
     return (dispatch) => {
         dispatch({type: "ADD_CREDIT"}) // sets loading to true
@@ -12,5 +21,15 @@ export const addCredit = credit => { // takes in new Credit as a JavaScript obje
         })
         .then(res => res.json()) // parses the response to JSON
         .then(credit => dispatch({type: "PLAYBILL_ADDED", payload: credit})) // adds the returned JSON to the global stat, sets loading to false
+    }
+}
+
+export const deleteCredit = creditId => { // takes in the id number of a specific credit
+    return (dispatch) => {
+        dispatch({type: "DELETE_CREDIT"}) // sets loading to true
+        fetch(`/credits/${creditId}`, { // makes call to backend API
+            method: 'DELETE' // signifies that call will be deleting a Credit record from the database
+            })
+        .then( () => dispatch({type: "CREDIT_DELETED", payload: creditId})) // updates global state to disinclude deleted credit, sets loading to false
     }
 }

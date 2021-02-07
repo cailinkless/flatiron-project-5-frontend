@@ -22,6 +22,8 @@ class PlaybillsIndex extends Component {
 
     render() {
 
+      // debugger
+
       console.log("Rendering...")
       
       const playbillLis = this.props.playbills.map( pb => 

@@ -53,6 +53,22 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
                 loading: false
             }
 
+        case "DELETE_PLAYBILLCREDIT":
+            return {
+                ...state,
+                loading: true
+            }
+    
+        case "PLAYBILLCREDIT_DELETED":
+            // // const playbill = state.playbill.find(pb => pb.id === action.payload.playbill_id)
+            // const newCredits = playbill.credits.filter(c => c.id != action.payload.id)
+            debugger
+            return {
+                ...state,
+                playbills: [...state.playbills],
+                loading: false
+            }
+
         default: 
             return state
     }

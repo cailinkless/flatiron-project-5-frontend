@@ -24,6 +24,7 @@ class EditPlaybill extends Component {
             <div>
                 <h1>I'm the Edit Playbill View!</h1>
                 <PlaybillEditForm selectedPlaybill={selectplaybill}/>
+                <CreditsIndex playbill={selectplaybill}/>
                 <CreditForm playbillId={selectplaybill.id}/>
             </div>
         );
