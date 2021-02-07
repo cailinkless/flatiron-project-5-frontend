@@ -24,13 +24,14 @@ export const addCredit = credit => { // takes in new Credit as a JavaScript obje
     }
 }
 
-export const deleteCredit = creditId => { // takes in the id number of a specific credit
+export const deleteCredit = (creditId, playbillId) => { // takes in the id number of a specific credit
     return (dispatch) => {
         dispatch({type: "DELETE_CREDIT"}) // sets loading to true
-        fetch(`/credits/${creditId}`, { // makes call to backend API
+        fetch(`/playbills/${playbillId}/credits/${creditId}`, { // makes call to backend API
             method: 'DELETE' // signifies that call will be deleting a Credit record from the database
             })
-        .then( () => dispatch({type: "CREDIT_DELETED", payload: creditId})) // updates global state to disinclude deleted credit, sets loading to false
+        .then(res => res.json())
+        .then( (playbill) => dispatch({type: "CREDIT_DELETED", payload: playbill})) // updates global state to disinclude deleted credit, sets loading to false
     }
 }
 

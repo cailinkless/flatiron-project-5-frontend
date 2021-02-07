@@ -34,13 +34,23 @@ const creditReducer = (state={credits: [], loading: false}, action) => {
                 loading: true
             }
     
-        case "CREDIT_DELETED":
-            debugger
-            return {
-                ...state,
-                credits: [...state.credits.filter(c => c.id != action.payload)],
-                loading: false
-            }
+        // case "CREDIT_DELETED":
+        //     debugger
+        //     return {
+        //         ...state,
+        //         credits: [...state.credits.filter(c => c.id !== action.payload)],
+        //         loading: false
+        //     }
+        
+        case 'CREDIT_DELETED':
+                const deletePlaybillCredit = state.playbills.map(playbill => {
+                    if (playbill.id === action.payload.id) {
+                    return action.payload
+                    } else {
+                    return playbill
+                    }
+                })
+                return {...state, playbills: deletePlaybillCredit}
 
         case "UPDATE_CREDIT":
             return {
