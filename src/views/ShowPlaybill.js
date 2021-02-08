@@ -4,7 +4,7 @@ import { connect } from 'react-redux'; // Gain access to global state
 
 import PlaybillTemplate from '../components/PlaybillTemplate';
 
-import CreditsIndex from '../containers/credits/CreditsIndex';
+import EditMe from '../components/EditMe';
 
 class ShowPlaybill extends Component {
 
@@ -14,6 +14,7 @@ class ShowPlaybill extends Component {
 
         return (
             <div>
+                <EditMe playbillId={selectplaybill.id}/>
                 <PlaybillTemplate playbill={selectplaybill}/>
             </div>
         );

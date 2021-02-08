@@ -1,6 +1,7 @@
 import React, { Component } from 'react' // allows for a component class
 import { addCredit } from '../../actions/credits' // grabs the addCredit action
 import { connect } from 'react-redux' // allows access to redux global state / dispatch
+import { withRouter } from 'react-router-dom';
 
 class CreditForm extends Component {
 
@@ -53,6 +54,7 @@ class CreditForm extends Component {
                 playbill_id: this.props.playbillId
             }
         })
+        this.props.history.push(`/`)
     }
 
     render() {
@@ -70,11 +72,11 @@ class CreditForm extends Component {
                     <label for="cast">Crew (includes writer, director, etc...)</label>
                     <br/><br/>
                     <label>Role:</label>
-                    <textarea name="role" type="text" value={this.state.credit.role} onChange={this.handleOnChange}/>
+                    <input name="role" type="text" value={this.state.credit.role} onChange={this.handleOnChange}/>
                     <br/><br/>
                     <label>Bio:</label>
                     <br/>
-                    <input name="bio" type="textarea" value={this.state.credit.bio} onChange={this.handleOnChange}/>
+                    <textarea name="bio" type="textarea" value={this.state.credit.bio} onChange={this.handleOnChange}/>
                     <br/><br/>
                     <button type="submit">Add This Credit</button>
                 </form>
@@ -83,4 +85,4 @@ class CreditForm extends Component {
     }
 }
 
-export default connect(null, { addCredit })(CreditForm) // connects addCredit action to CreditForm
+export default withRouter(connect(null, { addCredit })(CreditForm)) // connects addCredit action to CreditForm

@@ -6,6 +6,8 @@ import PlaybillEditForm from '../containers/playbills/PlaybillEditForm'
 
 import CreditsIndex from '../containers/credits/CreditsIndex'
 
+import PreviewMe from '../components/PreviewMe';
+
 import {Link} from 'react-router-dom';
 
 class EditPlaybill extends Component {
@@ -16,10 +18,11 @@ class EditPlaybill extends Component {
 
         return (
             <div>
-                <h1>I'm the Edit Playbill View!</h1>
+                <PreviewMe playbillId={selectplaybill.id}/>
                 <PlaybillEditForm selectedPlaybill={selectplaybill}/>
+                <br/><br/>
+                <Link to={"/playbills/" + selectplaybill.id + "/credits/new"}>Add New Credit</Link>
                 <CreditsIndex playbill={selectplaybill}/>
-                <Link to={"/playbills/" + selectplaybill.id + "/credits/new"}>Add Credit</Link>
             </div>
         );
     }
