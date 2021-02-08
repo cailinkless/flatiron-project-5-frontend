@@ -45,25 +45,27 @@ class CreditEditForm extends Component {
 render() {
         return (
             <div>
-                <h2>Cast / Crew Member Details:</h2>
+                <h2>Credit Details:</h2>
                 <form onSubmit={this.handleOnSubmit}>
                     <label>Name:</label>
                     <input name="name" type="text" value={this.state.credit.name} onChange={this.handleOnChange}/>
-
+                    <br/><br/>
                     <label>Category:</label>
                     <input name="cast" type="radio" value="true" onChange={this.handleOnChange}></input>
                     <label for="cast">Cast</label>
                     <input name="cast" type="radio" value="false" onChange={this.handleOnChange}></input>
                     <label for="cast">Crew (includes writer, director, etc...)</label>
-
+                    <br/><br/>
                     <label>Role:</label>
                     <input name="role" type="text" value={this.state.credit.role} onChange={this.handleOnChange}/>
-                    
+                    <br/><br/>
                     <label>Bio:</label>
-                    <input name="bio" type="textarea" value={this.state.credit.bio} onChange={this.handleOnChange}/>
-                    
-                    <button type="submit">Update This Credit</button>
+                    <br/>
+                    <textarea name="bio" type="textarea" value={this.state.credit.bio} onChange={this.handleOnChange}/>
+                    <br/><br/>
+                    <button type="submit">Update Credit</button>
                 </form>
+                <br/>
                 <button id={this.state.credit.id} onClick={this.handleDelete}>Delete Credit</button>
             </div>
         )

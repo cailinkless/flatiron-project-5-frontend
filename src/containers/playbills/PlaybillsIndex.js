@@ -36,7 +36,7 @@ class PlaybillsIndex extends Component {
     
       return (
         <div>
-          <h2>Your Playbills</h2>
+          <h2>My Playbills</h2>
           <ul>{this.props.loading? <h3>Loading...</h3> : playbillLis}</ul>
         </div>
       );

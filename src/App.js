@@ -1,19 +1,22 @@
 import React, {Component} from 'react';
+
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { connect } from 'react-redux'; // Gain access to global state
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; // Import react-router functions
-import {Link} from 'react-router-dom';
 
 import TopLogo from './components/TopLogo'; // get branded header
 
 //Move these to a routes component and then import them as one?
-import Home from './views/Home' // get Home view
+import Home from './views/Home' // get Index View (Home)
 import NewPlaybill from './views/NewPlaybill' // get new playbill view
 import ShowPlaybill from './views/ShowPlaybill' // get show playbill view
 import EditPlaybill from './views/EditPlaybill' // get edit playbill view
 
 import EditCredit from './views/EditCredit'
 import NewCredit from './views/NewCredit'
+
+import NavBar from './components/NavBar'
 
 // Add A Switch
 
@@ -27,19 +30,21 @@ class App extends Component {
 
           <TopLogo />
 
+          <NavBar />
+
           <Switch>
-
-            <Route path="/playbills/:playbillId/credits/new" component={NewCredit} />
-
-            <Route path="/playbills/new" component={NewPlaybill} />
-            <Route path="/playbills/:playbillId/edit" component={EditPlaybill} />
-            <Route path="/playbills/:playbillId" component={ShowPlaybill} />
-
             
+            {/* Home (Index Route) */}
+            <Route exact path="/" component={Home} />
+            {/* Create Routes */}
+            <Route exact path="/playbills/new" component={NewPlaybill} />
+            <Route exact path="/playbills/:playbillId/credits/new" component={NewCredit} />
+            {/* Show Route */}
+            <Route exact path="/playbills/:playbillId" component={ShowPlaybill} />
+            {/* Update Routes (Includes Delete) */}
+            <Route exact path="/playbills/:playbillId/edit" component={EditPlaybill} />
+            <Route exact path="/credits/:creditId/edit" component={EditCredit} />
 
-            <Route path="/credits/:creditId/edit" component={EditCredit} />
-
-            <Route path="/" component={Home} />
           </Switch>
 
         </div>

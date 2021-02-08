@@ -62,19 +62,20 @@ class CreditForm extends Component {
                 <form onSubmit={this.handleOnSubmit}>
                     <label>Name:</label>
                     <input name="name" type="text" value={this.state.credit.name} onChange={this.handleOnChange}/>
-
+                    <br/><br/>
                     <label>Category:</label>
                     <input name="cast" type="radio" value="true" onChange={this.handleOnChange}></input>
                     <label for="cast">Cast</label>
                     <input name="cast" type="radio" value="false" onChange={this.handleOnChange}></input>
                     <label for="cast">Crew (includes writer, director, etc...)</label>
-
+                    <br/><br/>
                     <label>Role:</label>
-                    <input name="role" type="text" value={this.state.credit.role} onChange={this.handleOnChange}/>
-                    
+                    <textarea name="role" type="text" value={this.state.credit.role} onChange={this.handleOnChange}/>
+                    <br/><br/>
                     <label>Bio:</label>
+                    <br/>
                     <input name="bio" type="textarea" value={this.state.credit.bio} onChange={this.handleOnChange}/>
-                    
+                    <br/><br/>
                     <button type="submit">Add This Credit</button>
                 </form>
             </div>

@@ -12,7 +12,6 @@ class EditCredit extends Component {
 
         return (
             <div>
-                <h1>I'm the Edit Credit View!</h1>
                 <CreditEditForm selectedCredit={selectcredit}/>
             </div>
         );
