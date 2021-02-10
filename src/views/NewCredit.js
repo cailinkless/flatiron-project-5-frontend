@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react'; // grab ability to use react and class components
 import { connect } from 'react-redux'; // Gain access to global state
-
-import CreditForm from '../containers/credits/CreditForm';
+import CreditForm from '../containers/credits/CreditForm'; // grab form component
 
 class NewCredit extends Component {
 
     render() {
 
+        // Choose correct playbill for the route and put into variable for passing down as prop
         const selectplaybill = this.props.playbills.find(pb => pb.id === parseInt(this.props.match.params.playbillId))
 
         return (
@@ -19,8 +18,7 @@ class NewCredit extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    console.log("I am state", state)
+const mapStateToProps = state => { // make global state availab le as the following props:
     return {
       playbills: state.playbillReducer.playbills,
       loading: state.playbillReducer.loading

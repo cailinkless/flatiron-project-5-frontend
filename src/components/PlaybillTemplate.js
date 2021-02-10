@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'; // grab ability to use react & component class
 
 class PlaybillTemplate extends Component {
 
-
-
+// parse out credit types
 state = {
   playwright: this.props.playbill.credits.find(c => c.role === "Playwright"),
   director: this.props.playbill.credits.find(c => c.role === "Director"),
@@ -18,6 +17,7 @@ state = {
 
 render() {
 
+  // determine which info sections are applicable to appear
   const titleLine = this.props.playbill.title !== "" ? <h2>{this.props.playbill.title}</h2> : <h2>Untitled Play</h2>
   const playwrightLine = this.state.playwright ? <h3>Written by {this.state.playwright.name}</h3> : null
   const directorLine = this.state.director ? <h3>Directed by {this.state.director.name}</h3> : null

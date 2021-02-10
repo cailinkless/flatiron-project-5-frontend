@@ -1,6 +1,6 @@
-import React from 'react'
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
+import React from 'react' // grab ability to use react
+import Nav from 'react-bootstrap/Nav' // grab styled Nav elements
+import Navbar from 'react-bootstrap/Navbar' // grab styled Navbar elements
 
 const NavBar = () => {
     return (

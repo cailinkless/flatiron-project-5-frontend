@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
-import { updateCredit, deleteCredit } from '../../actions/credits';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from 'react'; // grab ability to use react and component classes
+import { updateCredit, deleteCredit } from '../../actions/credits'; // grab relevant credit actions
+import { connect } from 'react-redux'; // gain access to global state
+import { withRouter } from 'react-router-dom'; // ensure access to history
 
 class CreditEditForm extends Component {
 
     state={
-        credit: this.props.selectedCredit,
+        credit: this.props.selectedCredit, // ensures operation on the correct credit
         loading: false
     }
 
+    // Keep form fields up to date with user's input
     handleOnChange = e => {
-        this.setState({...this.state,
+        this.setState({...this.state, 
             credit: {
                 ...this.state.credit,
                 [e.target.name]: e.target.value
@@ -19,9 +20,11 @@ class CreditEditForm extends Component {
         })
     }
 
+    // Send changed info to the database & global state
     handleOnSubmit = e => {
-        e.preventDefault()
+        e.preventDefault() // stops submit from trying to handle itself
 
+        // Change Radio Input from string value to boolean
         if (this.state.credit.cast === "true") {
             this.setState({...this.state,
                 credit: {
@@ -31,15 +34,14 @@ class CreditEditForm extends Component {
             })
         }
 
-        const credit = {...this.state.credit}
-        console.log(credit)
-        this.props.updateCredit(credit)
-        this.props.history.push('/')
+        const credit = {...this.state.credit} // grabs updated credit from local state
+        this.props.updateCredit(credit) // sends updates to database
+        this.props.history.push('/') // returns user home
     }
 
     handleDelete = (e) => {
-        this.props.deleteCredit(e.target.id, this.state.credit.playbill_id);
-        this.props.history.push(`/`);
+        this.props.deleteCredit(e.target.id, this.state.credit.playbill_id); // sends delete request to database
+        this.props.history.push(`/`); // returns user home
     }
 
 render() {

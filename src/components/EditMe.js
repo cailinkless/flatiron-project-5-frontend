@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react'; // grab ability to use react and component classes
+import {Link} from 'react-router-dom'; // grab ability to link
 
 class EditMe extends Component {
 
+    // Flip to Show View
     render() {
         return (    
         <div className="EditMe" style={{color: "black"}}>

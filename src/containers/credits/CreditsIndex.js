@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-// get action to delete playbills
-import { deleteCredit } from '../../actions/credits';
-import { withRouter } from 'react-router-dom';
-
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react'; // grab ability to use react and class components
+import { connect } from 'react-redux'; // gain access to the global state
+import { deleteCredit } from '../../actions/credits'; // get action to delete credits
+import { withRouter } from 'react-router-dom'; // ensure access to history
+import {Link} from 'react-router-dom'; // grab ability to use Link
 
 class CreditsIndex extends Component {
 
-    handleDelete = (e) => {
-        this.props.deleteCredit(e.target.id, this.props.playbill.id);
-        this.props.history.push(`/`);
-    }
+    // handleDelete = (e) => {
+    //     this.props.deleteCredit(e.target.id, this.props.playbill.id);
+    //     this.props.history.push(`/`);
+    // }
     
     render() {
+
+        // Parse credits into a simple display format
         const creditDivs = this.props.playbill.credits.map( c => 
             <div key={c.id}> 
               <p>Name: {c.name}</p>
@@ -34,8 +34,7 @@ class CreditsIndex extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    console.log("I am state", state)
+const mapStateToProps = state => { // make global state available as the following props:
     return {
         playbills: state.playbillReducer.playbills,
         credits: [...state.playbillReducer.playbills.map(pb => pb.credits).flat()],

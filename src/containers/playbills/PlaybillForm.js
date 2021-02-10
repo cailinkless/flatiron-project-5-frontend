@@ -1,20 +1,20 @@
-import React, { Component } from 'react'
-import { addPlaybill } from '../../actions/playbills'
-import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom';
+import React, { Component } from 'react' // grab ability to use react and class components
+import { addPlaybill } from '../../actions/playbills' // grab relevant playbill action
+import { connect } from 'react-redux' // gain access to global state
+import { withRouter } from 'react-router-dom'; // ensure access to history
 
 class PlaybillForm extends Component {
 
+    // Sets initial state formatting
     state={
         playbill: {
             title: "",
             about: ""
-            // credits: [],
-            // showtimes: []
         },
         loading: false
     }
 
+    // Keep track of user changes to the form
     handleOnChange = e => {
         this.setState({...this.state,
             playbill: {
@@ -24,12 +24,12 @@ class PlaybillForm extends Component {
         })
     }
 
+    // Send info to the database & add to global state
     handleOnSubmit = e => {
         e.preventDefault()
         const playbill = {...this.state.playbill}
-        console.log(playbill)
         this.props.addPlaybill(playbill)
-        this.props.history.push('/')
+        this.props.history.push('/') // returns user home
     }
 
     render() {

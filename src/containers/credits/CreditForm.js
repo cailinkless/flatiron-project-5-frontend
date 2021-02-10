@@ -31,8 +31,7 @@ class CreditForm extends Component {
     handleOnSubmit = e => { // takes in the submit event
         e.preventDefault() // prevents submitting to a nonexistant backend
 
-        //workaround to change radio value into true boolean
-
+        //Change radio input's string value into a boolean
         if (this.state.credit.cast === "true") {
             this.setState({...this.state,
                 credit: {
@@ -43,7 +42,6 @@ class CreditForm extends Component {
         }
 
         const credit = {...this.state.credit} // save local state into variable
-        console.log(credit) // for reference in development
         this.props.addCredit(credit) // action call
         this.setState({ // clears local state (and by extension form) for new input
             credit: {
@@ -54,7 +52,8 @@ class CreditForm extends Component {
                 playbill_id: this.props.playbillId
             }
         })
-        this.props.history.push(`/`)
+        // Notification that credit has been added and stay on the form???
+        this.props.history.push(`/`) // returns user home
     }
 
     render() {

@@ -1,10 +1,6 @@
-import React, { Component } from 'react'
-// Gain access to global state
-import { connect } from 'react-redux';
-// Add action to load playbills
-import { getPlaybills } from '../../actions/playbills';
-// get action to delete playbills
-import { deletePlaybill } from '../../actions/playbills';
+import React, { Component } from 'react' // grab ability to use react and class components
+import { connect } from 'react-redux'; // gain access to global state
+import { getPlaybills, deletePlaybill} from '../../actions/playbills'; // grab relevant playbill actions
 
 import {Link} from 'react-router-dom';
 
@@ -12,6 +8,7 @@ import {Link} from 'react-router-dom';
 
 class PlaybillsIndex extends Component {
 
+    // Grabs list of playbills once component is up
     componentDidMount() {
       this.props.getPlaybills()
     }
@@ -22,10 +19,7 @@ class PlaybillsIndex extends Component {
 
     render() {
 
-      // debugger
-
-      console.log("Rendering...")
-      
+      // Parse playbills into simple display format
       const playbillLis = this.props.playbills.map( pb => 
       <li key={pb.id}>{pb.title} 
         <Link to={"/playbills/" + pb.id}>View</Link>
@@ -34,6 +28,7 @@ class PlaybillsIndex extends Component {
       </li>
       )
     
+      // Render list of playbills or a loading notification
       return (
         <div>
           <h2>My Playbills</h2>
@@ -43,8 +38,8 @@ class PlaybillsIndex extends Component {
     };
 }
 
-const mapStateToProps = state => {
-    console.log("I am state", state)
+//
+const mapStateToProps = state => { // make global state info available as the following props:
     return {
       playbills: state.playbillReducer.playbills,
       loading: state.playbillReducer.loading

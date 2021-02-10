@@ -1,24 +1,17 @@
-import React, {Component} from 'react';
-
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; // Import react-router functions
+import React, {Component} from 'react'; // grab ability to use react and class components
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; // import react-router functions
+import './App.css'; // grab styling
 
 import TopLogo from './components/TopLogo'; // get branded header
+import NavBar from './components/NavBar' // get navbar component
 
-//Move these to a routes component and then import them as one?
+// Routes
 import Home from './views/Home' // get Index View (Home)
 import NewPlaybill from './views/NewPlaybill' // get new playbill view
 import ShowPlaybill from './views/ShowPlaybill' // get show playbill view
 import EditPlaybill from './views/EditPlaybill' // get edit playbill view
-
-import EditCredit from './views/EditCredit'
-import NewCredit from './views/NewCredit'
-
-import NavBar from './components/NavBar'
-
-// Add A Switch
+import EditCredit from './views/EditCredit' // get edit credit view
+import NewCredit from './views/NewCredit' // get new credit view
 
 class App extends Component {
 
