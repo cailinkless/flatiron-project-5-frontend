@@ -157,9 +157,10 @@ html {
   padding-left: .5rem;
 }
 
-.nav-link {
+.navbar-nav a {
   display: inline;
   text-decoration: none;
+  padding-right: 1em;
 }
 
 /** END NAVBAR STYLES **/

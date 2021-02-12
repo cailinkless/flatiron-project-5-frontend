@@ -48,12 +48,18 @@ export const updatePlaybill = playbill => { // takes in the id number of a speci
     }
 }
 
-export const deletePlaybillCredit = credit => { // takes in the id number of a specific playbill
+//try going through playbill first
+export const addCredit = (credit, playbillId) => { // takes in new Credit as a JavaScript object
     return (dispatch) => {
-        dispatch({type: "DELETE_PLAYBILLCREDIT"}) // sets loading to true
-        fetch(`/playbills/${credit.playbill_id}/credits/${credit.id}`, { // makes call to backend API
-            method: 'DELETE' // signifies that call will be deleting a Playbill record from the database
-            })
-        .then( () => dispatch({type: "PLAYBILLCREDIT_DELETED", payload: credit})) // updates global state to disinclude deleted playbill, sets loading to false
+        dispatch({type: "ADD_CREDIT"}) // sets loading to true
+        fetch(`/playbills/${playbillId}/credits`, { // makes call to backend API
+            method: 'POST', // signifies that the call will be adding new object to the API
+            body: JSON.stringify(credit), // converts the Credit from a JS Object to a JSON string
+            headers: {
+                'Content-Type': 'application/json' // marks content type for informational purposes
+            }
+        })
+        .then(res => res.json()) // parses the response to JSON
+        .then(credit => dispatch({type: "CREDIT_ADDED", payload: credit})) // adds Credit to the global state, sets loading to false
     }
 }

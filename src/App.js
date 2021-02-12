@@ -1,14 +1,19 @@
+// Components & Navigation
 import React, {Component} from 'react'; // grab ability to use react and class components
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; // import react-router functions
-import './App.css'; // grab styling
 
-import TopLogo from './components/TopLogo'; // get branded header
+// Styling
+import './App.css'
+
+// Header
+import TopLogo from './components/TopLogo' // get branded header
 import NavBar from './components/NavBar' // get navbar component
 
 // Routes
 import Home from './views/Home' // get Index View (Home)
 import NewPlaybill from './views/NewPlaybill' // get new playbill view
 import ShowPlaybill from './views/ShowPlaybill' // get show playbill view
+import ShowCredit from './views/ShowCredit' // get show playbill view
 import EditPlaybill from './views/EditPlaybill' // get edit playbill view
 import EditCredit from './views/EditCredit' // get edit credit view
 import NewCredit from './views/NewCredit' // get new credit view
@@ -34,9 +39,11 @@ class App extends Component {
             <Route exact path="/playbills/:playbillId/credits/new" component={NewCredit} />
             {/* Show Route */}
             <Route exact path="/playbills/:playbillId" component={ShowPlaybill} />
+            <Route exact path="/credits/:creditId" component={ShowCredit} />
             {/* Update Routes (Includes Delete) */}
             <Route exact path="/playbills/:playbillId/edit" component={EditPlaybill} />
             <Route exact path="/credits/:creditId/edit" component={EditCredit} />
+            
 
           </Switch>
 

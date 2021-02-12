@@ -1,4 +1,4 @@
-// CRUD actions for the Credit model
+ // CRUD actions for the Credit model
 
 export const getCredits = () => {
     return (dispatch) => {
@@ -9,33 +9,32 @@ export const getCredits = () => {
     }
 }
 
-export const addCredit = credit => { // takes in new Credit as a JavaScript object
-    return (dispatch) => {
-        dispatch({type: "ADD_CREDIT"}) // sets loading to true
-        fetch('/credits', { // makes call to the backend API
-            method: 'POST', // signifies that the call will be adding new object to the API
-            body: JSON.stringify(credit), // converts the Credit from a JS Object to a JSON string
-            headers: {
-                'Content-Type': 'application/json' // marks content type for informational purposes
-            }
-        })
-        .then(res => res.json()) // parses the response to JSON
-        .then(credit => dispatch({type: "PLAYBILL_ADDED", payload: credit})) // adds the returned JSON to the global stat, sets loading to false
-    }
-}
+// export const addCredit = (credit, playbillId) => { // takes in new Credit as a JavaScript object
+//     return (dispatch) => {
+//         dispatch({type: "ADD_CREDIT"}) // sets loading to true
+//         fetch(`/playbills/${playbillId}/credits`, { // makes call to backend API
+//             method: 'POST', // signifies that the call will be adding new object to the API
+//             body: JSON.stringify(credit), // converts the Credit from a JS Object to a JSON string
+//             headers: {
+//                 'Content-Type': 'application/json' // marks content type for informational purposes
+//             }
+//         })
+//         .then(res => res.json()) // parses the response to JSON
+//         .then(playbill => dispatch({type: "CREDIT_ADDED", payload: playbill})) // adds Credit to the global state, sets loading to false
+//     }
+// }
 
-export const deleteCredit = (creditId, playbillId) => { // takes in the id number of a specific credit
+export const deleteCredit = creditId => { // takes in the id number of a specific credit
     return (dispatch) => {
         dispatch({type: "DELETE_CREDIT"}) // sets loading to true
-        fetch(`/playbills/${playbillId}/credits/${creditId}`, { // makes call to backend API
-            method: 'DELETE' // signifies that call will be deleting a Credit record from the database
+        fetch(`/credits/${creditId}`, { // makes call to backend API
+            method: 'DELETE' // signifies that call will be deleting a credit record from the database
             })
-        .then(res => res.json())
-        .then( (playbill) => dispatch({type: "CREDIT_DELETED", payload: playbill})) // updates global state to disinclude deleted credit, sets loading to false
+        .then( () => dispatch({type: "CREDIT_DELETED", payload: creditId})) // updates global state to disinclude deleted credit, sets loading to false
     }
 }
 
-export const updateCredit = credit => { // takes in a specific credit as a JS Object
+export const updateCredit = credit => { // takes in the id number of a specific credit
     return (dispatch) => {
         dispatch({type: "UPDATE_CREDIT"}) // sets loading to true
         fetch(`/credits/${credit.id}`, { // makes call to backend API
@@ -45,6 +44,6 @@ export const updateCredit = credit => { // takes in a specific credit as a JS Ob
                 'Content-Type': 'application/json' // marks content type for informational purposes
             }
         })
-        .then( () => dispatch({type: "CREDIT_UPDATED", payload: credit})) // updates global state to reflect the changed credit, sets loading to false
+        .then( () => dispatch({type: "CREDIT_UPDATED", payload: credit})) // updates global state with the new version of the credit, sets loading to false
     }
 }

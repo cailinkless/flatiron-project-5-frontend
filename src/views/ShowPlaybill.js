@@ -20,6 +20,7 @@ class ShowPlaybill extends Component {
 }
 
 const mapStateToProps = state => { // make global state available as the following props:
+    debugger
     return {
       playbills: state.playbillReducer.playbills,
       loading: state.playbillReducer.loading

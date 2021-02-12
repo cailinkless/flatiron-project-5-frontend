@@ -11,14 +11,15 @@ class EditPlaybill extends Component {
 
         // Grab the correct playbill for the route to pass down to components
         const selectplaybill = this.props.playbills.find(pb => pb.id === parseInt(this.props.match.params.playbillId))
-
+        
+        debugger
         return (
             <div>
                 <PreviewMe playbillId={selectplaybill.id}/>
                 <PlaybillEditForm selectedPlaybill={selectplaybill}/>
                 <br/><br/>
                 <Link to={"/playbills/" + selectplaybill.id + "/credits/new"}>Add New Credit</Link>
-                <CreditsIndex playbill={selectplaybill}/>
+                <CreditsIndex playbillId={selectplaybill.id}/>
             </div>
         );
     }

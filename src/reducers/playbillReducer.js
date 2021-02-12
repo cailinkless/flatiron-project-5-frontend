@@ -36,7 +36,7 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
         case "PLAYBILL_DELETED":
             return {
                 ...state,
-                playbills: [...state.playbills.filter(pb => pb.id != action.payload)],
+                playbills: [...state.playbills.filter(pb => pb.id !== parseInt(action.payload))],
                 loading: false
             }
 
@@ -49,9 +49,44 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
         case "PLAYBILL_UPDATED":
             return {
                 ...state,
-                playbills: [...state.playbills, action.payload],
+                playbills: [...state.playbills.filter(pb => pb.id !== action.payload.id), action.payload],
                 loading: false
             }
+
+        case "ADD_CREDIT":
+            return {
+                ...state,
+                loading: true
+                }
+                    
+        case "CREDIT_ADDED":
+            // playbill
+            // const updateMe = state.playbills.filter(pb => pb.id === action.payload.playbill.playbill_id)[0]
+            const updatedPlaybills = state.playbills.map(playbill => {
+                if (playbill.id === action.payload.playbill.playbill_id) {
+                    return {
+                        ...playbill,
+                        credits: [...playbill.credits, action.payload]
+                    }
+                } else {
+                    return playbill
+                }
+            })
+            debugger
+            return {
+                ...state,
+                playbills: updatedPlaybills,
+                loading: false
+            }
+
+        // case "CREDIT_ADDED":
+        //     // playbill
+        //     debugger
+        //     return {
+        //         ...state,
+        //         playbills: [...state.playbills.filter(pb => pb.id !== action.payload.id), action.payload], // assumes payload of "playbill"
+        //         loading: false
+        //     }
             
         default: 
             return state

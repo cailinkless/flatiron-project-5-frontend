@@ -30,7 +30,7 @@ class PlaybillEditForm extends Component {
         e.preventDefault()
         const playbill = {...this.state.playbill}
         this.props.updatePlaybill(playbill)
-        // notifyUpdate
+        alert("Changes Saved!")
     }
 
     render() {

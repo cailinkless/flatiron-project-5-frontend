@@ -14,7 +14,6 @@ state = {
     </div>)]
 }
 
-
 render() {
 
   // determine which info sections are applicable to appear

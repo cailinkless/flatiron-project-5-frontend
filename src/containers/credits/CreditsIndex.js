@@ -1,45 +1,53 @@
-import React, { Component } from 'react'; // grab ability to use react and class components
-import { connect } from 'react-redux'; // gain access to the global state
-import { deleteCredit } from '../../actions/credits'; // get action to delete credits
-import { withRouter } from 'react-router-dom'; // ensure access to history
-import {Link} from 'react-router-dom'; // grab ability to use Link
+import React, { Component } from 'react' // grab ability to use react and class components
+import { connect } from 'react-redux'; // gain access to global state
+import { getCredits, deleteCredit} from '../../actions/credits'; // grab relevant credit actions
+
+import {Link} from 'react-router-dom';
+
+
 
 class CreditsIndex extends Component {
 
-    // handleDelete = (e) => {
-    //     this.props.deleteCredit(e.target.id, this.props.playbill.id);
-    //     this.props.history.push(`/`);
-    // }
-    
+    // Grabs list of playbills once component is up
+    componentDidMount() {
+      this.props.getCredits()
+    }
+
+    handleDelete = (e) => {
+      this.props.deleteCredit(e.target.id)
+    }
+
     render() {
 
-        // Parse credits into a simple display format
-        const creditDivs = this.props.playbill.credits.map( c => 
-            <div key={c.id}> 
-              <p>Name: {c.name}</p>
-              <p>Role: {c.role}</p>
-              <p>Bio: {c.bio}</p>
-              <Link to={"/credits/" + c.id + "/edit"}>Edit Credit</Link>
-              <hr/>
-            </div>
-        )
+      // Parse Credits into simple display format
 
-        return (
-            <div>
-                <h2>Credit Info:</h2>
-                <hr/>
-                {creditDivs}
-            </div>
-        )
-    }
+
+      const creditLis = this.props.credits.filter(c => c.playbill.playbill_id === this.props.playbillId).map( c => 
+      <li key={c.id}>{c.name} - {c.role} - 
+        <Link to={"/credits/" + c.id}>View</Link>
+        <Link to={"/credits/" + c.id + "/edit"}>Edit</Link>
+        <button id={c.id} onClick={this.handleDelete}>Delete</button>
+      </li>
+      )
+    
+      // Render list of playbills or a loading notification
+      return (
+        <div>
+          <h2>Associated Credits</h2>
+          <ul>{this.props.c_loading? <h3>Loading...</h3> : creditLis}</ul>
+        </div>
+      );
+    };
 }
 
-const mapStateToProps = state => { // make global state available as the following props:
+//
+const mapStateToProps = state => { // make global state info available as the following props:
     return {
-        playbills: state.playbillReducer.playbills,
-        credits: [...state.playbillReducer.playbills.map(pb => pb.credits).flat()],
-        loading: state.creditReducer.loading
+      credits: state.creditReducer.credits,
+      c_loading: state.creditReducer.loading,
+      // playbills: state.playbillReducer.playbills,
+      // loading: state.playbillReducer.loading
     }
 }
-
-export default withRouter(connect(mapStateToProps, { deleteCredit })(CreditsIndex));
+  
+export default connect(mapStateToProps, { getCredits, deleteCredit })(CreditsIndex);

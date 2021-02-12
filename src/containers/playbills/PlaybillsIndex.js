@@ -22,8 +22,8 @@ class PlaybillsIndex extends Component {
       // Parse playbills into simple display format
       const playbillLis = this.props.playbills.map( pb => 
       <li key={pb.id}>{pb.title} 
-        <Link to={"/playbills/" + pb.id}>View</Link>
         <Link to={"/playbills/" + pb.id + "/edit"}>Edit</Link>
+        <Link to={"/playbills/" + pb.id}>Preview</Link>
         <button id={pb.id} onClick={this.handleDelete}>Delete</button>
       </li>
       )

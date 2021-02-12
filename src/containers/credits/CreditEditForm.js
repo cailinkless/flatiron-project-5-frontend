@@ -1,13 +1,13 @@
 import React, { Component } from 'react'; // grab ability to use react and component classes
-import { updateCredit, deleteCredit } from '../../actions/credits'; // grab relevant credit actions
+import { updateCredit } from '../../actions/credits'; // grab relevant credit actions
 import { connect } from 'react-redux'; // gain access to global state
 import { withRouter } from 'react-router-dom'; // ensure access to history
 
 class CreditEditForm extends Component {
 
     state={
-        credit: this.props.selectedCredit, // ensures operation on the correct credit
-        loading: false
+        credit: this.props.credits.find(c => c.id === this.props.creditId),
+        c_loading: false
     }
 
     // Keep form fields up to date with user's input
@@ -35,13 +35,8 @@ class CreditEditForm extends Component {
         }
 
         const credit = {...this.state.credit} // grabs updated credit from local state
-        this.props.updateCredit(credit) // sends updates to database
-        this.props.history.push('/') // returns user home
-    }
-
-    handleDelete = (e) => {
-        this.props.deleteCredit(e.target.id, this.state.credit.playbill_id); // sends delete request to database
-        this.props.history.push(`/`); // returns user home
+        this.props.updateCredit(credit)  // sends updates to database
+        this.props.history.push(`/credits/${this.state.credit.id}`)
     }
 
 render() {
@@ -68,10 +63,16 @@ render() {
                     <button type="submit">Update Credit</button>
                 </form>
                 <br/>
-                <button id={this.state.credit.id} onClick={this.handleDelete}>Delete Credit</button>
             </div>
         )
     }
 }
 
-export default withRouter(connect(null, { updateCredit, deleteCredit })(CreditEditForm))
+const mapStateToProps = state => { // make global state info available as the following props:
+    return {
+      credits: state.creditReducer.credits,
+      c_loading: state.creditReducer.loading
+    }
+}
+
+export default withRouter(connect(mapStateToProps, { updateCredit })(CreditEditForm))

@@ -1,7 +1,13 @@
 import React, { Component } from 'react' // allows for a component class
-import { addCredit } from '../../actions/credits' // grabs the addCredit action
+// import { addCredit } from '../../actions/credits' 
+// grabs the addCredit action
 import { connect } from 'react-redux' // allows access to redux global state / dispatch
 import { withRouter } from 'react-router-dom';
+// import { addCredit } from '../../actions/credits';
+import { addCredit } from '../../actions/playbills';
+// import { addPlaybillCredit } from '../../actions/playbills';
+
+import { Redirect } from 'react-router';
 
 class CreditForm extends Component {
 
@@ -42,7 +48,8 @@ class CreditForm extends Component {
         }
 
         const credit = {...this.state.credit} // save local state into variable
-        this.props.addCredit(credit) // action call
+        this.props.addCredit(credit, this.props.playbillId) // action call
+        
         this.setState({ // clears local state (and by extension form) for new input
             credit: {
                 name: "",
@@ -52,11 +59,13 @@ class CreditForm extends Component {
                 playbill_id: this.props.playbillId
             }
         })
-        // Notification that credit has been added and stay on the form???
-        this.props.history.push(`/`) // returns user home
+        alert("Credit Saved!")
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect push to={"/playbills/" + this.props.playbillId} />;
+        }
         return (
             <div>
                 <h2>Cast / Crew Member Details:</h2>
