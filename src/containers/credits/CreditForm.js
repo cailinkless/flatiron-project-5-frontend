@@ -5,9 +5,8 @@ import { connect } from 'react-redux' // allows access to redux global state / d
 import { withRouter } from 'react-router-dom';
 // import { addCredit } from '../../actions/credits';
 import { addCredit } from '../../actions/playbills';
+// import { addCredit } from '../../actions/credits';
 // import { addPlaybillCredit } from '../../actions/playbills';
-
-import { Redirect } from 'react-router';
 
 class CreditForm extends Component {
 

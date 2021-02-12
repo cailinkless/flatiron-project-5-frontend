@@ -90,6 +90,7 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
                     credits: [...pb.credits.filter(c => c.id != action.payload)]
                 }
             })
+
             return {
                ...state,
                playbills: playbillsMinusCredit,
@@ -119,28 +120,6 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
                 playbills: updatedPlaybills,
                 loading: false
             }
-        
-        // case "CREDIT_ADDED":
-        //     // playbill
-        //     debugger
-        //     return {
-        //         ...state,
-        //         playbills: [...state.playbills.filter(pb => pb.id !== action.payload.id), action.payload], // assumes payload of "playbill"
-        //         loading: false
-        //     }
-
-                // case "UPDATE_CREDIT":
-        //     return {
-        //         ...state,
-        //         c_loading: true
-        //     }
-    
-        // case "CREDIT_UPDATED":
-        //     return {
-        //         ...state,
-        //         credits: [...state.credits.filter(c => c.id !== action.payload.id), action.payload],
-        //         c_loading: false
-        //     }
             
         default: 
             return state

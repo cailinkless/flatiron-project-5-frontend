@@ -5,6 +5,7 @@ import { connect } from 'react-redux'; // gain access to global state
 // import { getCredits } from '../../actions/credits'; // grab relevant credit actions
 // import { deleteCredit } from '../../actions/playbills';
 import { deleteCredit } from '../../actions/playbills';
+// import { deleteCredit } from '../../actions/credits';
 
 // import {Link} from 'react-router-dom';
 import {Link} from 'react-router-dom';

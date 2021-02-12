@@ -29,6 +29,7 @@ class PlaybillForm extends Component {
         e.preventDefault()
         const playbill = {...this.state.playbill}
         this.props.addPlaybill(playbill)
+        alert("Playbill Added!")
         this.props.history.push('/') // returns user home
     }
 

@@ -1,42 +1,123 @@
-// const creditReducer = (state={credits: [], c_loading: false}, action) => {
+// const creditReducer = (state={playbills: [], loading: false}, action) => {
 
 //     switch(action.type) {
-//         case "LOADING_CREDITS":
+//         // case "LOADING_PLAYBILLS":
+//         //     return {
+//         //         ...state,
+//         //         loading: true
+//         //     }
+
+//         // case "PLAYBILLS_LOADED":
+//         //     return {
+//         //         ...state,
+//         //         playbills: action.payload,
+//         //         loading:false
+//         //     }
+
+//         // case "ADD_PLAYBILL":
+//         //     return {
+//         //         ...state,
+//         //         loading: true
+//         //     }
+            
+//         // case "PLAYBILL_ADDED":
+//         //     return {
+//         //         ...state,
+//         //         playbills: [...state.playbills, action.payload],
+//         //         loading: false
+//         //     }
+
+//         // case "DELETE_PLAYBILL":
+//         //     return {
+//         //         ...state,
+//         //         loading: true
+//         //     }
+
+//         // case "PLAYBILL_DELETED":
+//         //     return {
+//         //         ...state,
+//         //         playbills: [...state.playbills.filter(pb => pb.id !== parseInt(action.payload))],
+//         //         loading: false
+//         //     }
+
+//         // case "UPDATE_PLAYBILL":
+//         //     return {
+//         //         ...state,
+//         //         loading: true
+//         //     }
+
+//         // case "PLAYBILL_UPDATED":
+//         //     debugger
+//         //     return {
+//         //         ...state,
+//         //         playbills: [...state.playbills.filter(pb => pb.id !== action.payload.id), action.payload],
+//         //         loading: false
+//         //     }
+
+//         case "ADD_CREDIT":
 //             return {
 //                 ...state,
-//                 c_loading: true
-//             }
-
-//         case "CREDITS_LOADED":
-//             return {
-//                 ...state,
-//                 credits: action.payload,
-//                 c_loading:false
-//             }
-
+//                 loading: true
+//                 }
+                    
 //         case "CREDIT_ADDED":
-//             const creditsPlus = [...state.credits, action.payload]
+//                 const playbillsPlusCredit = state.playbills.map(playbill => {
+//                 if (playbill.id === action.payload.playbill.playbill_id) {
+//                     return {
+//                         ...playbill,
+//                         credits: [...playbill.credits, action.payload]
+//                     }
+//                 } else {
+//                     return playbill
+//                 }
+//             })
 //             return {
 //                 ...state,
-//                 credits: creditsPlus,
-//                 c_loading: false
+//                 playbills: playbillsPlusCredit,
+//                 loading: false
+//             }
+
+//         case "DELETE_CREDIT":
+//             return {
+//                 ...state,
+//                 loading: true
 //             }
 
 //         case "CREDIT_DELETED":
-//             const creditsMinus = [...state.credits.filter(c => c.id != action.payload)]
+//             const playbillsMinusCredit = state.playbills.map(pb => {
+//                 return {
+//                     ...pb,
+//                     credits: [...pb.credits.filter(c => c.id != action.payload)]
+//                 }
+//             })
 //             return {
-//                 ...state,
-//                 credits: creditsMinus,
-//                 c_loading: false
+//                ...state,
+//                playbills: playbillsMinusCredit,
+//                loading: false 
 //             }
 
-//         case "CREDIT_UPDATED": 
-//             debugger
-//             const updatedCredits = [...state.credits.filter(c => c.id != action.payload.id), action.payload]
+//         case "UPDATE_CREDIT":
 //             return {
 //                 ...state,
-//                 credits: updatedCredits,
-//                 c_loading: false
+//                 loading: true
+//             }
+
+//         case "CREDIT_UPDATED":
+//             const updatedPlaybills = state.playbills.map(playbill => {
+//                 if (playbill.id === action.payload.playbill.playbill_id) {
+//                     return {
+//                         ...playbill,
+//                         credits: [...playbill.credits.filter(c => c.id != action.payload.id), action.payload]
+//                     }
+//                 } else {
+//                     return playbill
+//                 }
+//             })
+//             debugger
+//             return {
+//                 ...state,
+//                 playbills: updatedPlaybills,
+//                 loading: false
 //             }
             
 //         default: 
