@@ -9,9 +9,11 @@ import {Link} from 'react-router-dom';
 class CreditsIndex extends Component {
 
     // Grabs list of playbills once component is up
-    componentDidMount() {
-      this.props.getCredits()
-    }
+
+    // BLANKED OUT
+    // componentDidMount() {
+    //   this.props.getCredits()
+    // }
 
     handleDelete = (e) => {
       this.props.deleteCredit(e.target.id)
@@ -21,8 +23,14 @@ class CreditsIndex extends Component {
 
       // Parse Credits into simple display format
 
+      // BLANKED OUT
+      // const creditLis = this.props.credits.filter(c => c.playbill.playbill_id === this.props.playbillId).map( c => 
 
-      const creditLis = this.props.credits.filter(c => c.playbill.playbill_id === this.props.playbillId).map( c => 
+      // GRAB PLAYBILL
+      const selectedPlaybill = this.props.playbills.find(pb => pb.id === this.props.playbillId)
+      // MAKE Lis
+      const creditLis = selectedPlaybill.credits.map( c =>
+        
       <li key={c.id}>{c.name} - {c.role} - 
         <Link to={"/credits/" + c.id}>View</Link>
         <Link to={"/credits/" + c.id + "/edit"}>Edit</Link>
@@ -34,7 +42,8 @@ class CreditsIndex extends Component {
       return (
         <div>
           <h2>Associated Credits</h2>
-          <ul>{this.props.c_loading? <h3>Loading...</h3> : creditLis}</ul>
+          {/* <ul>{this.props.c_loading? <h3>Loading...</h3> : creditLis}</ul> */}
+          <ul>{this.props.loading? <h3>Loading...</h3> : creditLis}</ul>
         </div>
       );
     };
@@ -43,10 +52,10 @@ class CreditsIndex extends Component {
 //
 const mapStateToProps = state => { // make global state info available as the following props:
     return {
-      credits: state.creditReducer.credits,
-      c_loading: state.creditReducer.loading,
-      // playbills: state.playbillReducer.playbills,
-      // loading: state.playbillReducer.loading
+      // credits: state.creditReducer.credits,
+      // c_loading: state.creditReducer.loading,
+      playbills: state.playbillReducer.playbills,
+      loading: state.playbillReducer.loading
     }
 }
   

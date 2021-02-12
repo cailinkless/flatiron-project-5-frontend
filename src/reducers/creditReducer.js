@@ -1,18 +1,18 @@
 const creditReducer = (state={credits: [], c_loading: false}, action) => {
 
     switch(action.type) {
-        case "LOADING_CREDITS":
-            return {
-                ...state,
-                c_loading: true
-            }
+        // case "LOADING_CREDITS":
+        //     return {
+        //         ...state,
+        //         c_loading: true
+        //     }
 
-        case "CREDITS_LOADED":
-            return {
-                ...state,
-                credits: action.payload,
-                c_loading:false
-            }
+        // case "CREDITS_LOADED":
+        //     return {
+        //         ...state,
+        //         credits: action.payload,
+        //         c_loading:false
+        //     }
 
         case "DELETE_CREDIT":
             return {
