@@ -1,12 +1,7 @@
 import React, { Component } from 'react' // allows for a component class
-// import { addCredit } from '../../actions/credits' 
-// grabs the addCredit action
 import { connect } from 'react-redux' // allows access to redux global state / dispatch
 import { withRouter } from 'react-router-dom';
-// import { addCredit } from '../../actions/credits';
 import { addCredit } from '../../actions/playbills';
-// import { addCredit } from '../../actions/credits';
-// import { addPlaybillCredit } from '../../actions/playbills';
 
 class CreditForm extends Component {
 

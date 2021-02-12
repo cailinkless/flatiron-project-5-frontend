@@ -48,8 +48,7 @@ export const updatePlaybill = playbill => { // takes in the id number of a speci
     }
 }
 
-//try going through playbill first
-export const addCredit = (credit, playbillId) => { // takes in new Credit as a JavaScript object
+export const addCredit = (credit, playbillId) => { // takes in new Credit as a JavaScript object, and its playbill id
     return (dispatch) => {
         dispatch({type: "ADD_CREDIT"}) // sets loading to true
         fetch(`/playbills/${playbillId}/credits`, { // makes call to backend API
@@ -64,7 +63,6 @@ export const addCredit = (credit, playbillId) => { // takes in new Credit as a J
     }
 }
 
-//try going through playbill first
 export const deleteCredit = creditId => { // takes in the id number of a specific credit
     return (dispatch) => {
         dispatch({type: "DELETE_CREDIT"}) // sets loading to true
@@ -75,7 +73,6 @@ export const deleteCredit = creditId => { // takes in the id number of a specifi
     }
 }
 
-//try going through playbill first
 export const updateCredit = credit => { // takes in the id number of a specific credit
     return (dispatch) => {
         dispatch({type: "UPDATE_CREDIT"}) // sets loading to true

@@ -39,7 +39,6 @@ class App extends Component {
             <Route exact path="/playbills/:playbillId/credits/new" component={NewCredit} />
             {/* Show Route */}
             <Route exact path="/playbills/:playbillId" component={ShowPlaybill} />
-            {/* <Route exact path="/credits/:creditId" component={ShowCredit} /> */}
             <Route exact path="/playbills/:playbillId/credits/:creditId" component={ShowCredit} />
             {/* Update Routes (Includes Delete) */}
             <Route exact path="/playbills/:playbillId/edit" component={EditPlaybill} />

@@ -2,7 +2,7 @@ import React, { Component } from 'react'; // grab ability to use react & compone
 
 class CreditTemplate extends Component {
 
-// parse out credit types
+// parse out credit categories
 state = {
   name: this.props.credit.name,
   role: this.props.credit.role,

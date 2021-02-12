@@ -1,14 +1,11 @@
 import React, { Component } from 'react'; // grab ability to use react and component classes
-// import { updateCredit } from '../../actions/credits'; // grab relevant credit actions
-import { updateCredit } from '../../actions/playbills'; // grab relevant credit actions
-// import { updateCredit } from '../../actions/credits'; // grab relevant credit actions
+import { updateCredit } from '../../actions/playbills'; // grab relevant action
 import { connect } from 'react-redux'; // gain access to global state
 import { withRouter } from 'react-router-dom'; // ensure access to history
 
 class CreditEditForm extends Component {
 
     state={
-        // credit: this.props.credits.find(c => c.id === this.props.creditId),
         credit: this.props.playbills.find(pb => pb.id === this.props.playbillId).credits.find(c => c.id === this.props.creditId),
     }
 

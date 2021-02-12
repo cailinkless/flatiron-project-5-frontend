@@ -47,7 +47,6 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
             }
 
         case "PLAYBILL_UPDATED":
-            debugger
             return {
                 ...state,
                 playbills: [...state.playbills.filter(pb => pb.id !== action.payload.id), action.payload],
@@ -114,7 +113,6 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
                     return playbill
                 }
             })
-            debugger
             return {
                 ...state,
                 playbills: updatedPlaybills,
