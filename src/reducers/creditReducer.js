@@ -57,7 +57,8 @@ const creditReducer = (state={credits: [], c_loading: false}, action) => {
             }
 
         case "CREDIT_UPDATED": 
-            const updatedCredits = [...state.credits, action.payload]
+            debugger
+            const updatedCredits = [...state.credits.filter(c => c.id != action.payload.id), action.payload]
             return {
                 ...state,
                 credits: updatedCredits,

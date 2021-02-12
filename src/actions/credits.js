@@ -1,13 +1,13 @@
  // CRUD actions for the Credit model
 
-export const getCredits = () => {
-    return (dispatch) => {
-        dispatch({type: "LOADING_CREDITS"}) // sets loading to true
-        fetch('/credits') // makes call to backend API
-        .then(res => res.json()) // parses the response to JSON
-        .then(credits => dispatch({type: "CREDITS_LOADED", payload: credits})) // adds credits to the global state, sets loading to false
-    }
-}
+// export const getCredits = () => {
+//     return (dispatch) => {
+//         dispatch({type: "LOADING_CREDITS"}) // sets loading to true
+//         fetch('/credits') // makes call to backend API
+//         .then(res => res.json()) // parses the response to JSON
+//         .then(credits => dispatch({type: "CREDITS_LOADED", payload: credits})) // adds credits to the global state, sets loading to false
+//     }
+// }
 
 // export const addCredit = (credit, playbillId) => { // takes in new Credit as a JavaScript object
 //     return (dispatch) => {
