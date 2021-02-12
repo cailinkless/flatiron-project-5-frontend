@@ -14,18 +14,18 @@ const creditReducer = (state={credits: [], c_loading: false}, action) => {
                 c_loading:false
             }
 
-        case "DELETE_CREDIT":
-            return {
-                ...state,
-                c_loading: true
-            }
+        // case "DELETE_CREDIT":
+        //     return {
+        //         ...state,
+        //         c_loading: true
+        //     }
     
-        case "CREDIT_DELETED":
-            return {
-                ...state,
-                credits: [...state.credits.filter(c => c.id !== parseInt(action.payload))],
-                c_loading: false
-            }
+        // case "CREDIT_DELETED":
+        //     return {
+        //         ...state,
+        //         credits: [...state.credits.filter(c => c.id !== parseInt(action.payload))],
+        //         c_loading: false
+        //     }
 
         case "UPDATE_CREDIT":
             return {
@@ -41,13 +41,21 @@ const creditReducer = (state={credits: [], c_loading: false}, action) => {
             }
 
         case "CREDIT_ADDED":
-        const updatedCredits = [...state.credits, action.payload]
-        debugger
-        return {
-            ...state,
-            credits: updatedCredits,
-            c_loading: false
-        }
+            const updatedCredits = [...state.credits, action.payload]
+            debugger
+            return {
+                ...state,
+                credits: updatedCredits,
+                c_loading: false
+            }
+
+        case "CREDIT_DELETED":
+            const creditsMinus = [...state.credits.filter(c => c.id != action.payload)]
+            return {
+                ...state,
+                credits: creditsMinus,
+                c_loading: false
+            }
             
         default: 
             return state

@@ -63,3 +63,14 @@ export const addCredit = (credit, playbillId) => { // takes in new Credit as a J
         .then(credit => dispatch({type: "CREDIT_ADDED", payload: credit})) // adds Credit to the global state, sets loading to false
     }
 }
+
+//try going through playbill first
+export const deleteCredit = creditId => { // takes in the id number of a specific credit
+    return (dispatch) => {
+        dispatch({type: "DELETE_CREDIT"}) // sets loading to true
+        fetch(`/credits/${creditId}`, { // makes call to backend API
+            method: 'DELETE' // signifies that call will be deleting a credit record from the database
+            })
+        .then( () => dispatch({type: "CREDIT_DELETED", payload: creditId})) // updates global state to disinclude deleted credit, sets loading to false
+    }
+}

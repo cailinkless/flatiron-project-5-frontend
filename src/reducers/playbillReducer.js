@@ -79,6 +79,24 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
                 loading: false
             }
 
+        case "DELETE_CREDIT":
+            return {
+                ...state,
+                loading: true
+            }
+
+        case "CREDIT_DELETED":
+            const playbillsMinusCredit = state.playbills.map(pb => {
+                return {
+                    ...pb,
+                    credits: [...pb.credits.filter(c => c.id != action.payload)]
+                }
+            })
+            return {
+               ...state,
+               playbills: playbillsMinusCredit,
+               loading: false 
+            }
         // case "CREDIT_ADDED":
         //     // playbill
         //     debugger

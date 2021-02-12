@@ -24,15 +24,15 @@ export const getCredits = () => {
 //     }
 // }
 
-export const deleteCredit = creditId => { // takes in the id number of a specific credit
-    return (dispatch) => {
-        dispatch({type: "DELETE_CREDIT"}) // sets loading to true
-        fetch(`/credits/${creditId}`, { // makes call to backend API
-            method: 'DELETE' // signifies that call will be deleting a credit record from the database
-            })
-        .then( () => dispatch({type: "CREDIT_DELETED", payload: creditId})) // updates global state to disinclude deleted credit, sets loading to false
-    }
-}
+// export const deleteCredit = creditId => { // takes in the id number of a specific credit
+//     return (dispatch) => {
+//         dispatch({type: "DELETE_CREDIT"}) // sets loading to true
+//         fetch(`/credits/${creditId}`, { // makes call to backend API
+//             method: 'DELETE' // signifies that call will be deleting a credit record from the database
+//             })
+//         .then( () => dispatch({type: "CREDIT_DELETED", payload: creditId})) // updates global state to disinclude deleted credit, sets loading to false
+//     }
+// }
 
 export const updateCredit = credit => { // takes in the id number of a specific credit
     return (dispatch) => {

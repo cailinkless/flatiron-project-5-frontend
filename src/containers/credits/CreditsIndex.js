@@ -1,6 +1,7 @@
 import React, { Component } from 'react' // grab ability to use react and class components
 import { connect } from 'react-redux'; // gain access to global state
-import { getCredits, deleteCredit} from '../../actions/credits'; // grab relevant credit actions
+import { getCredits } from '../../actions/credits'; // grab relevant credit actions
+import { deleteCredit } from '../../actions/playbills';
 
 import {Link} from 'react-router-dom';
 
@@ -45,8 +46,8 @@ const mapStateToProps = state => { // make global state info available as the fo
     return {
       credits: state.creditReducer.credits,
       c_loading: state.creditReducer.loading,
-      // playbills: state.playbillReducer.playbills,
-      // loading: state.playbillReducer.loading
+      playbills: state.playbillReducer.playbills,
+      loading: state.playbillReducer.loading
     }
 }
   
