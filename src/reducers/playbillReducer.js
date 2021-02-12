@@ -60,9 +60,7 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
                 }
                     
         case "CREDIT_ADDED":
-            // playbill
-            // const updateMe = state.playbills.filter(pb => pb.id === action.payload.playbill.playbill_id)[0]
-            const updatedPlaybills = state.playbills.map(playbill => {
+                const playbillsPlusCredit = state.playbills.map(playbill => {
                 if (playbill.id === action.payload.playbill.playbill_id) {
                     return {
                         ...playbill,
@@ -75,7 +73,7 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
             debugger
             return {
                 ...state,
-                playbills: updatedPlaybills,
+                playbills: playbillsPlusCredit,
                 loading: false
             }
 
@@ -97,6 +95,30 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
                playbills: playbillsMinusCredit,
                loading: false 
             }
+
+        case "UPDATE_CREDIT":
+            return {
+                ...state,
+                loading: true
+            }
+
+        case "CREDIT_UPDATED":
+            const updatedPlaybills = state.playbills.map(playbill => {
+                if (playbill.id === action.payload.playbill.playbill_id) {
+                    return {
+                        ...playbill,
+                        credits: [...playbill.credits, action.payload]
+                    }
+                } else {
+                    return playbill
+                }
+            })
+            return {
+                ...state,
+                playbills: updatedPlaybills,
+                loading: false
+            }
+        
         // case "CREDIT_ADDED":
         //     // playbill
         //     debugger
@@ -104,6 +126,19 @@ const playbillReducer = (state={playbills: [], loading: false}, action) => {
         //         ...state,
         //         playbills: [...state.playbills.filter(pb => pb.id !== action.payload.id), action.payload], // assumes payload of "playbill"
         //         loading: false
+        //     }
+
+                // case "UPDATE_CREDIT":
+        //     return {
+        //         ...state,
+        //         c_loading: true
+        //     }
+    
+        // case "CREDIT_UPDATED":
+        //     return {
+        //         ...state,
+        //         credits: [...state.credits.filter(c => c.id !== action.payload.id), action.payload],
+        //         c_loading: false
         //     }
             
         default: 

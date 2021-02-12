@@ -1,5 +1,6 @@
 import React, { Component } from 'react'; // grab ability to use react and component classes
-import { updateCredit } from '../../actions/credits'; // grab relevant credit actions
+// import { updateCredit } from '../../actions/credits'; // grab relevant credit actions
+import { updateCredit } from '../../actions/playbills'; // grab relevant credit actions
 import { connect } from 'react-redux'; // gain access to global state
 import { withRouter } from 'react-router-dom'; // ensure access to history
 
@@ -36,7 +37,8 @@ class CreditEditForm extends Component {
 
         const credit = {...this.state.credit} // grabs updated credit from local state
         this.props.updateCredit(credit)  // sends updates to database
-        this.props.history.push(`/credits/${this.state.credit.id}`)
+        // alert("Credit Saved!")
+        this.props.history.push(`/playbills/${this.props.playbillId}/edit`)
     }
 
 render() {
@@ -70,8 +72,10 @@ render() {
 
 const mapStateToProps = state => { // make global state info available as the following props:
     return {
+      playbills: state.playbillReducer.playbills,
+      loading: state.playbillReducer.loading,
       credits: state.creditReducer.credits,
-      c_loading: state.creditReducer.loading
+      c_loading: state.creditReducer.c_loading
     }
 }
 

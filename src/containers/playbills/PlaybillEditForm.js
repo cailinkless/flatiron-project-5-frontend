@@ -10,11 +10,6 @@ class PlaybillEditForm extends Component {
         loading: false
     }
 
-    // Make Alert that update has taken place?
-    notifyUpdate = () => {
-        // find alert
-    }
-
     // Keep track of user changes
     handleOnChange = e => {
         this.setState({...this.state,

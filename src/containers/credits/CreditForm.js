@@ -63,9 +63,6 @@ class CreditForm extends Component {
     }
 
     render() {
-        if (this.state.redirect) {
-            return <Redirect push to={"/playbills/" + this.props.playbillId} />;
-        }
         return (
             <div>
                 <h2>Cast / Crew Member Details:</h2>
