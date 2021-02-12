@@ -7,8 +7,8 @@ import { withRouter } from 'react-router-dom'; // ensure access to history
 class CreditEditForm extends Component {
 
     state={
-        credit: this.props.credits.find(c => c.id === this.props.creditId),
-        c_loading: false
+        // credit: this.props.credits.find(c => c.id === this.props.creditId),
+        credit: this.props.playbills.find(pb => pb.id === this.props.playbillId).credits.find(c => c.id === this.props.creditId),
     }
 
     // Keep form fields up to date with user's input
@@ -73,9 +73,7 @@ render() {
 const mapStateToProps = state => { // make global state info available as the following props:
     return {
       playbills: state.playbillReducer.playbills,
-      loading: state.playbillReducer.loading,
-      credits: state.creditReducer.credits,
-      c_loading: state.creditReducer.c_loading
+      loading: state.playbillReducer.loading
     }
 }
 

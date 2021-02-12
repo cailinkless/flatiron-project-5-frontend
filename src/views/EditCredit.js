@@ -7,8 +7,9 @@ class EditCredit extends Component {
 
     render() {
 
+        const playbillId = parseInt(this.props.match.params.playbillId)
         const creditId = parseInt(this.props.match.params.creditId)
-        const playbillId = this.props.credits.find(c => c.id === creditId).playbill.playbill_id
+        debugger
         return (
         <div>
             <CreditEditForm playbillId={playbillId} creditId={creditId}/>
@@ -21,8 +22,8 @@ class EditCredit extends Component {
 
 const mapStateToProps = state => { // make global state info available as the following props:
     return {
-      credits: state.creditReducer.credits,
-      c_loading: state.creditReducer.loading
+        playbills: state.playbillReducer.playbills,
+        loading: state.playbillReducer.loading
     }
 }
 
