@@ -45,7 +45,7 @@ const creditReducer = (state={credits: [], c_loading: false}, action) => {
         debugger
         return {
             ...state,
-            playbills: updatedCredits,
+            credits: updatedCredits,
             c_loading: false
         }
             
