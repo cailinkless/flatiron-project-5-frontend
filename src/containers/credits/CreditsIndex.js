@@ -27,7 +27,8 @@ class CreditsIndex extends Component {
       <li key={c.id}>{c.name} - {c.role} - 
         <Link to={"/playbills/" + c.playbill.playbill_id + "/credits/" + c.id}>View</Link>
         <Link to={"/playbills/" + c.playbill.playbill_id + "/credits/" + c.id + "/edit"}>Edit</Link>
-        <button id={c.id} onClick={this.handleDelete}>Delete</button>
+        {/* <button id={c.id} onClick={this.handleDelete}>Delete</button> */}
+        <button id={c.id} onClick={(e) => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDelete(e) }}>Delete</button>
       </li>
     )
 

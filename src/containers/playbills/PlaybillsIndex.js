@@ -24,7 +24,8 @@ class PlaybillsIndex extends Component {
       <li key={pb.id}>{pb.title} 
         <Link to={"/playbills/" + pb.id + "/edit"}>Edit</Link>
         <Link to={"/playbills/" + pb.id}>Preview</Link>
-        <button id={pb.id} onClick={this.handleDelete}>Delete</button>
+        {/* <button id={pb.id} onClick={this.handleDelete}>Delete</button> */}
+        <button id={pb.id} onClick={(e) => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDelete(e) }}>Delete</button>
       </li>
       )
     
