@@ -30,15 +30,24 @@ const creditReducer = (state={credits: [], c_loading: false}, action) => {
         case "UPDATE_CREDIT":
             return {
                 ...state,
-                loading: true
+                c_loading: true
             }
     
         case "CREDIT_UPDATED":
             return {
                 ...state,
                 credits: [...state.credits.filter(c => c.id !== action.payload.id), action.payload],
-                loading: false
+                c_loading: false
             }
+
+        case "CREDIT_ADDED":
+        const updatedCredits = [...state.credits, action.payload]
+        debugger
+        return {
+            ...state,
+            playbills: updatedCredits,
+            c_loading: false
+        }
             
         default: 
             return state
