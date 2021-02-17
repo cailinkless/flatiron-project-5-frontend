@@ -8,6 +8,10 @@ import {Link} from 'react-router-dom';
 
 class PlaybillsIndex extends Component {
 
+  // state={
+  //   name: "howard"
+  // }
+
     // Grabs list of playbills once component is up
     componentDidMount() {
       this.props.getPlaybills()
@@ -17,15 +21,30 @@ class PlaybillsIndex extends Component {
       this.props.deletePlaybill(e.target.id)
     }
 
-    render() {
+    // handleOnClick = (e) => {
+    //   console.log(e.target.dataset.id)
+    //   if (this.state[e.target.dataset.id] === undefined) {
+    //     this.setState({
+    //       [e.target.dataset.id]: 1
+    //     })
+    //   } else {
+    //     this.setState({
+    //     [e.target.dataset.id]: this.state[e.target.dataset.id] + 1
+    //   })}
+    // }
+
+    render() 
+    
+      {
 
       // Parse playbills into simple display format
       const playbillLis = this.props.playbills.map( pb => 
-      <li key={pb.id}>{pb.title} 
+      <li key={pb.id}>{pb.title ? pb.title : "Untitled Playbill"} 
         <Link to={"/playbills/" + pb.id + "/edit"}>Edit</Link>
         <Link to={"/playbills/" + pb.id}>Preview</Link>
-        {/* <button id={pb.id} onClick={this.handleDelete}>Delete</button> */}
         <button id={pb.id} onClick={(e) => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDelete(e) }}>Delete</button>
+        {/* <button data-id={pb.id} onClick={this.handleOnClick}>Pick Me!</button> */}
+        {/* <p>{this.state[pb.id]? this.state[pb.id] + " likes" : "No one likes me."}</p> */}
       </li>
       )
     
